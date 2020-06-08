@@ -70,10 +70,19 @@
 
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12">
-					<button class="btn btn-dark" style="margin:10px;" id="clearButton">Clear</button>
-					<button class="btn btn-dark" style="margin:5px;" id="randomiseButton">Randomise Seed</button>
-					<button class="btn btn-dark" style="margin:5px;" id="blendButton">Change Blend Mode</button>
-					<br><br>
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" style="padding:5px">
+							<button class="btn btn-dark" style="width:100%" id="clearButton">Clear</button>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" style="padding:5px">
+							<button class="btn btn-dark"  style="width:100%;" id="randomiseButton">Randomise Seed</button>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4" style="padding:5px">
+							<button class="btn btn-dark" style="width:100%;" id="blendButton">Change Blend Mode</button>
+						</div>
+					</div>
+
+					<br>
 					Current Noise Seed: <output id="seedOut"></output><br>
 					Current Blend Mode: <output id="blendOut">Blend</output>
 					<br>
@@ -163,18 +172,18 @@
 						
 					<br>
 					<div class="row">
-						<div class="col-lg-8">
+						<div class="col-8">
 							<span>Randomise Colours on Click</span>
 						</div>
-						<div class="col-lg-4">
+						<div class="col-4">
 							<input type="checkbox" name="randColour" id="randColour">
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-8">
+						<div class="col-8">
 							<span>Change Colours on Speed of Particles</span>
 						</div>
-						<div class="col-lg-4">
+						<div class="col-4">
 							<input type="checkbox" id="speedColour">
 						</div>
 					</div>
