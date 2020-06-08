@@ -365,20 +365,17 @@ class Simulation {
 		this.setup();
 		
 		
-		let callback = this;
+		let callback = this
+		let width = this.parent.offsetWidth*0.95;
 		window.addEventListener("resize", function () {
-			
-			// callback.particles = []
 			this.parent = document.getElementById("attractor")
-			callback.width 
-			callback.width = this.parent.offsetWidth*0.95;
-			callback.height = windowHeight -300
-		
-			// // set new width and height of canvas
-			// callback.canvas.width = (callback.width);
-			// callback.canvas.style.width = (callback.width) + "px";
-			// callback.canvas.height = callback.height;
-			callback.setup();
+			let newWidth = this.parent.offsetWidth*0.95
+			if (callback.width != newWidth){
+				
+				callback.width 
+				callback.width = newWidth;
+				callback.height = windowHeight -300
+			}
 			
 		});
 
