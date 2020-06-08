@@ -380,14 +380,16 @@ class Simulation {
 		blendMode(BLEND);
 		
 		let callback = this
+		let width = windowWidth;
 		window.addEventListener("resize", function () {
-			
-			// callback.particles = []
-			callback.width = windowWidth
-			callback.height = windowHeight
-		
+			if (callback.width != windowWidth){
+				// callback.particles = []
+				callback.width = windowWidth
+				callback.height = windowHeight
 
-			callback.setup();
+
+				callback.setup();
+			}
 			
 		});
     }
