@@ -1024,6 +1024,7 @@ section {
 	border-radius: 50%; 
 	background: #E63946;
 	cursor: pointer;
+	border: #d3d3d3;
   }
   
   .slider::-moz-range-thumb {
