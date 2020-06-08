@@ -370,11 +370,12 @@ class Simulation {
 		window.addEventListener("resize", function () {
 			this.parent = document.getElementById("attractor")
 			let newWidth = this.parent.offsetWidth*0.95
-			if (callback.width != newWidth){
+			if (width != newWidth){
 				
 				callback.width 
 				callback.width = newWidth;
 				callback.height = windowHeight -300
+				callback.setup();
 			}
 			
 		});
