@@ -28,18 +28,20 @@
 	})();
 	let hero = document.getElementById("hero");
   window.addEventListener("scrollAnimation", function(){
-	  if (window.pageYOffset <0){
-		// do nothing!!! ie do not negatively rotate
-	  }
-	  else if (window.pageYOffset < window.screen.height*0.75){
-		//   rotate amount
-		let rotation = 120 * (window.pageYOffset/window.screen.height);
-		hero.style.transform = "rotateX("+rotation+"deg)";
-		hero.style.webkitTransform = "rotateX("+rotation+"deg)";
-	  }
-	  else{
-		hero.style.transform = "rotateX(90deg)";
-		hero.style.webkitTransform = "rotateX(90deg)";
+	  if (window.screen.width > 1000){
+		if (window.pageYOffset <0){
+			// do nothing!!! ie do not negatively rotate
+		  }
+		  else if (window.pageYOffset < window.screen.height*0.75){
+			//   rotate amount
+			let rotation = 120 * (window.pageYOffset/window.screen.height);
+			hero.style.transform = "rotateX("+rotation+"deg)";
+			hero.style.webkitTransform = "rotateX("+rotation+"deg)";
+		  }
+		  else{
+			hero.style.transform = "rotateX(90deg)";
+			hero.style.webkitTransform = "rotateX(90deg)";
+		  }
 	  }
   });
 
