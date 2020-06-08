@@ -383,7 +383,6 @@ class Simulation {
 		window.addEventListener("resize", function () {
 			
 			// callback.particles = []
-			callback.width 
 			callback.width = windowWidth
 			callback.height = windowHeight
 		
