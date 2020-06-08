@@ -367,15 +367,18 @@ class Simulation {
 		
 		let callback = this
 		let width = this.parent.offsetWidth*0.95;
+		console.log(width);
 		window.addEventListener("resize", function () {
 			this.parent = document.getElementById("attractor")
 			let newWidth = this.parent.offsetWidth*0.95
+			console.log(width,newWidth);
 			if (width != newWidth){
 				
 				callback.width 
 				callback.width = newWidth;
 				callback.height = windowHeight -300
 				callback.setup();
+				width = newWidth;
 			}
 			
 		});
@@ -387,6 +390,11 @@ class Simulation {
      * general setup function used to initiate graphics related methods - which change depending on whether a canvas is provided
      */
     setup () {
+
+		for (let i=0;i<this.particles.length;i++){
+			this.particles[i].mainWidth = this.width;
+			this.particles[i].mainHeight = this.height+200;
+		}
 		
         if (this.renderer === undefined) {
 

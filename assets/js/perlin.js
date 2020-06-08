@@ -57,7 +57,6 @@ class Particle {
         this.yAccn = yAccn || 0;
 
 		this.colour = colours[floor(random(colours.length))]
-		console.log(this.colour)
         // Particle.prototype.r = red || 255;
         // Particle.prototype.g = green || 0;
         // Particle.prototype.b = blue || 0;
@@ -389,6 +388,7 @@ class Simulation {
 
 
 				callback.setup();
+				width = windowWidth;
 			}
 			
 		});

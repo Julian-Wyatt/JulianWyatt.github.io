@@ -32,7 +32,7 @@ function draw() {
 }
 
 $(document).ready(function () {
-	console.log($('.nav-menu').length)
+
   // Mobile Navigation
   if ($('.nav-menu').length) {
     var $mobile_nav = $('.nav-menu').clone().prop({
