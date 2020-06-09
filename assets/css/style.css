@@ -693,6 +693,7 @@ section {
 .portfolio #portfolio-flters {
   list-style: none;
   margin-bottom: 20px;
+  padding-left: 10px;
 }
 
 .portfolio #portfolio-flters li {
