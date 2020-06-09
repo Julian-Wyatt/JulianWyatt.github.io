@@ -2098,26 +2098,26 @@ function main () {	// eslint-disable-line no-unused-vars
 
 	// #region Textures
 
-	let woodText = Scene1.newTexture("wood");
-	let floorText = Scene1.newTexture("floor");
-	let sofa1Text = Scene1.newTexture("sofa1");
-	let sofa2Text = Scene1.newTexture("sofa2");
+	let woodText = Scene1.newTexture("wood.png");
+	let floorText = Scene1.newTexture("floor.jpg");
+	let sofa1Text = Scene1.newTexture("sofa1.jpg");
+	let sofa2Text = Scene1.newTexture("sofa2.jpg");
 
-	let sofa2NormalText = Scene1.newTexture("sofa2Normal",1);
-	let ceramic = Scene1.newTexture("ceramic");
-	let shadeText = Scene1.newTexture("shade");
-	let skyboxText = Scene1.newTexture("skybox",2);
+	let sofa2NormalText = Scene1.newTexture("sofa2Normal.jpg",1);
+	let ceramic = Scene1.newTexture("mug.png");
+	let shadeText = Scene1.newTexture("shade.jpg");
+	let skyboxText = Scene1.newTexture("skybox.png",2);
 
-	let TVtext1 = Scene1.newTexture("TV1",2);
-	let TVtext2 = Scene1.newTexture("TV2",2);
-	let TVtext3 = Scene1.newTexture("TV3",2);
-	let TVtext4 = Scene1.newTexture("TV4",2);
+	let TVtext1 = Scene1.newTexture("TV1.png",2);
+	let TVtext2 = Scene1.newTexture("TV2.png",2);
+	let TVtext3 = Scene1.newTexture("TV3.png",2);
+	let TVtext4 = Scene1.newTexture("TV4.png",2);
 
 
-	let wallText = Scene1.newTexture("wall");
-	let wallNormalText = Scene1.newTexture("wallNormal",1);
-	let tableText = Scene1.newTexture("fabric");
-	let tableNormalText = Scene1.newTexture("fabricNormal",1);
+	let wallText = Scene1.newTexture("wall.jpg");
+	let wallNormalText = Scene1.newTexture("wallNormal.jpg",1);
+	let tableText = Scene1.newTexture("fabric.jpg");
+	let tableNormalText = Scene1.newTexture("fabricNormal.jpg",1);
 
 
 	// #endregion Textures
