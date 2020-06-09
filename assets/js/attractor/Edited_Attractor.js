@@ -309,7 +309,7 @@ class Simulation {
         if (this.renderer === undefined) {
 
             this.height = windowHeight - 300;
-            this.width = this.parent.offsetWidth*0.95;
+            this.width = this.parent.offsetWidth -30;
 
         } else {
 
@@ -366,11 +366,11 @@ class Simulation {
 		
 		
 		let callback = this
-		let width = this.parent.offsetWidth*0.95;
+		let width = this.parent.offsetWidth -30;
 		console.log(width);
 		window.addEventListener("resize", function () {
 			this.parent = document.getElementById("attractor")
-			let newWidth = this.parent.offsetWidth*0.95
+			let newWidth = this.parent.offsetWidth -30
 			console.log(width,newWidth);
 			if (width != newWidth){
 				
@@ -400,8 +400,8 @@ class Simulation {
 
             this.canvas = createCanvas(this.width, this.height);
 			this.canvas.parent("attractor");
-			this.canvas["canvas"].style.marginLeft= "10px";
-			this.canvas["canvas"].style.paddingRight= "15px";
+			// this.canvas["canvas"].style.marginLeft= "10px";
+			// this.canvas["canvas"].style.paddingRight= "15px";
             noStroke();
             fill(0);
             ellipseMode(RADIUS);
