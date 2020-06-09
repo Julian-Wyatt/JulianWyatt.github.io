@@ -1449,6 +1449,18 @@ class Texture {
 
 		}
 
+		gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1); // Flip the image's y axis
+
+		// Enable texture unit0
+		gl.activeTexture(gl.TEXTURE0 + this.pointer);
+
+		// Bind the texture object to the target
+
+		gl.bindTexture(gl.TEXTURE_2D, this.textureBuffer);
+		// Set the texture image
+
+		// console.log(this.textureBuffer.img.src + "\t"+this.textureBuffer.img.height+"\t"+this.textureBuffer.img.width)
+		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, new Uint8Array([18, 33, 54,255]));
 
 		let callbackObj = this;
 		this.textureBuffer.img.onload = function () {
@@ -2055,7 +2067,7 @@ let keypressed = {};
  */
 function main () {	// eslint-disable-line no-unused-vars
 	if (window.screen.width < 1000){
-		
+
 		return;
 	}
 	// Retrieve <canvas> element
