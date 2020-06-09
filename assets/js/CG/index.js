@@ -2129,7 +2129,7 @@ function main () {	// eslint-disable-line no-unused-vars
 	let lampParent = Scene1.newModel("lampParent",2);
 	let base = Scene1.newModel("lampBase",0);
 	let stand = Scene1.newModel("lampStand",0);
-	let shade1 = Scene1.newModel("shade",0);
+	let shade1 = Scene1.newModel("lampShade",0);
 	let bulb1 = Scene1.newModel("bulb",0);
 
 	lampParentParent.addChild(lampParent);
@@ -2342,7 +2342,7 @@ function main () {	// eslint-disable-line no-unused-vars
 	TV.textures.push(TVtext3);
 	TV.textures.push(TVtext4);
 
-	let soundbar = Scene1.newModel("Soundbar",0);
+	let soundbar = Scene1.newModel("soundbar",0);
 	soundbar.updatePos(new Vector3([-8,-1.5,-0.2]));
 	soundbar.updateScale(new Vector3([0.5,0.5,0.4]));
 	soundbar.textures.push(TVtext4);
@@ -2363,7 +2363,7 @@ function main () {	// eslint-disable-line no-unused-vars
 
 
 	let bulb = Scene1.newModel("bulb",0);
-	let shade = Scene1.newModel("shade",0);
+	let shade = Scene1.newModel("lampShade",0);
 	lightFitting.addChild(cable1);
 	cable1.addChild(cable2);
 	cable2.addChild(cable3);
