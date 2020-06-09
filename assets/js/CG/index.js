@@ -1026,7 +1026,7 @@ function readOBJFile (fileName, gl,program, model, scale, reverse) {
 		}
 
 	};
-	request.open("GET","./assets/Models/"+fileName,true);
+	request.open("GET","./assets/Models/"+fileName+".obj",true);
 	request.send();
 
 }
