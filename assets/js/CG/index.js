@@ -2639,6 +2639,15 @@ function main () {	// eslint-disable-line no-unused-vars
 
 	});
 
+	let wallBtn = document.getElementById("wallsBtn");
+	wallBtn.addEventListener("click",function () {
+
+			// spacebar pressed
+			// lowers walls to fully show room - see update function
+			startLoadAnimation = true;
+
+	});
+
 	let changeStyle = document.getElementById("styleBtn");
 	changeStyle.addEventListener("click", function () {
 
