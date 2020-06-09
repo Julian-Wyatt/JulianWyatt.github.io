@@ -1460,7 +1460,7 @@ class Texture {
 		// Set the texture image
 
 		// console.log(this.textureBuffer.img.src + "\t"+this.textureBuffer.img.height+"\t"+this.textureBuffer.img.width)
-		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, new Uint8Array([18, 33, 54]));
+		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([18, 33, 54,255]));
 
 		let callbackObj = this;
 		this.textureBuffer.img.onload = function () {
