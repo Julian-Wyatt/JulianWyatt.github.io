@@ -2054,7 +2054,10 @@ let keypressed = {};
  * @returns {null} No return value
  */
 function main () {	// eslint-disable-line no-unused-vars
-	console.log("Running");
+	if (window.screen.width < 1000){
+		
+		return;
+	}
 	// Retrieve <canvas> element
 	let glparent = document.getElementById("glWidthParent");
 	let canvas = document.getElementById("webgl");
