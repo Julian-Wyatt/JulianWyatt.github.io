@@ -517,6 +517,13 @@ section {
 	}
 
 }
+.img {
+	/* height:300px; */
+	max-height: 400px;
+	width: 80%;
+	object-fit: contain;
+	margin-left:0px !important;
+}
 
 .about .content h3 {
   font-weight: 700;
