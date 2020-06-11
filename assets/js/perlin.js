@@ -320,7 +320,7 @@ class Simulation {
 
         if (this.renderer === undefined) {
 
-            this.height = windowHeight;
+            this.height = window.innerHeight;
             this.width = windowWidth;
 
         } else {
@@ -380,11 +380,12 @@ class Simulation {
 		
 		let callback = this
 		let width = windowWidth;
+		let height
 		window.addEventListener("resize", function () {
 			if (width != windowWidth){
 				// callback.particles = []
 				callback.width = windowWidth
-				callback.height = windowHeight
+				callback.height = window.innerHeight
 
 
 				callback.setup();
