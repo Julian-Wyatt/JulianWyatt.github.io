@@ -1111,7 +1111,7 @@ section {
   
   .carousel .carousel-item {
 	text-align: center;
-	color: #fff;
+	color: black;
 	display: block;
   }
   
@@ -1125,13 +1125,15 @@ section {
   .carousel .carousel-item h3 {
 	font-size: 20px;
 	font-weight: bold;
-	margin: 10px 0 5px 0;
-	color: #fff;
+	/* margin: 10px 0 5px 0; */
+	margin-bottom: 30px;
+	color: black;
   }
   
   .carousel .carousel-item h4 {
+	margin-bottom: 10px;
 	font-size: 14px;
-	color: #ddd;
+	color: black;
 	margin: 0 0 15px 0;
   }
   
