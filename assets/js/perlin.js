@@ -380,9 +380,9 @@ class Simulation {
 		
 		let callback = this
 		let width = windowWidth;
-		let height
+		let height = window.innerHeight;
 		window.addEventListener("resize", function () {
-			if (width != windowWidth){
+			if (width != windowWidth || height != window.innerHeight){
 				// callback.particles = []
 				callback.width = windowWidth
 				callback.height = window.innerHeight
@@ -390,8 +390,8 @@ class Simulation {
 
 				callback.setup();
 				width = windowWidth;
+				height = window.innerHeight;
 			}
-			
 		});
     }
 
