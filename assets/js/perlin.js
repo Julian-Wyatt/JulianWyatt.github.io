@@ -382,16 +382,19 @@ class Simulation {
 		let width = windowWidth;
 		let height = window.innerHeight;
 		window.addEventListener("resize", function () {
-			if (width != windowWidth || height != window.innerHeight){
-				// callback.particles = []
-				callback.width = windowWidth
-				callback.height = window.innerHeight
-
-
-				callback.setup();
-				width = windowWidth;
-				height = window.innerHeight;
+			if (windowWidth > 400) {
+				if (width != windowWidth || height != window.innerHeight){
+					// callback.particles = []
+					callback.width = windowWidth
+					callback.height = window.innerHeight
+	
+	
+					callback.setup();
+					width = windowWidth;
+					height = window.innerHeight;
+				}
 			}
+
 		});
     }
 
