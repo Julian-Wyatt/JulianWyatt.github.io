@@ -363,22 +363,23 @@ class Simulation {
 		
         this.noiseSeed = 0;
 		this.setup();
-		
-		
+				
 		let callback = this
 		let width = this.parent.offsetWidth -30;
-
+		let height = windowHeight - 300
 		window.addEventListener("resize", function () {
-			this.parent = document.getElementById("attractor")
-			let newWidth = this.parent.offsetWidth -30
+			if (windowWidth > 400) {
+				this.parent = document.getElementById("attractor")
+				let newWidth = this.parent.offsetWidth -30
 
-			if (width != newWidth){
-				
-				callback.width 
-				callback.width = newWidth;
-				callback.height = windowHeight -300
-				callback.setup();
-				width = newWidth;
+				if (width != newWidth || height != windowHeight - 300){
+					
+					callback.width 
+					callback.width = newWidth;
+					callback.height = windowHeight -300
+					callback.setup();
+					width = newWidth;
+				}
 			}
 			
 		});
