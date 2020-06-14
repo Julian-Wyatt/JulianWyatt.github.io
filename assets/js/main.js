@@ -32,9 +32,9 @@
 		if (window.pageYOffset <0){
 			// do nothing!!! ie do not negatively rotate
 		  }
-		  else if (window.pageYOffset < window.screen.height*0.75){
+		  else if (window.pageYOffset < window.innerHeight*0.75){
 			//   rotate amount
-			let rotation = 120 * (window.pageYOffset/window.screen.height);
+			let rotation = 120 * (window.pageYOffset/window.innerHeight);
 			hero.style.transform = "rotateX("+rotation+"deg)";
 			hero.style.webkitTransform = "rotateX("+rotation+"deg)";
 		  }
@@ -121,7 +121,7 @@
   }
   // Toggle .header-scrolled class to #header when page is scrolled
   $(window).scroll(function() {
-    if ($(this).scrollTop() > window.screen.height-450) {
+    if ($(this).scrollTop() > window.innerHeight-450) {
 	  $('#header').addClass('header-scrolled');
 	//   $('#hero').addClass('hero-scroll');
 	  $('#nav').addClass('nav-menu-scrolled');
@@ -133,14 +133,14 @@
     }
   });
 
-  if ($(window).scrollTop() > window.screen.height-450) {
+  if ($(window).scrollTop() > window.innerHeight-450) {
 	$('#nav').removeClass('nav-menu-scrolled');
 	$('#nav').addClass('nav-colour');
     $('#header').addClass('header-scrolled');
   }
   // Back to top button
   $(window).scroll(function() {
-    if ($(this).scrollTop() > window.screen.height-450) {
+    if ($(this).scrollTop() > window.innerHeight-450) {
       $('.back-to-top').fadeIn('slow');
     } else {
       $('.back-to-top').fadeOut('slow');
