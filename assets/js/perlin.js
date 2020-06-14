@@ -489,21 +489,24 @@ class Simulation {
      * also calls randomcheck event if that checkbox is ticked each time the mouse is clicked
      */
     run (renderer) {
-
-        if (renderer !== undefined) {
-
-            this.renderer = renderer;
-
-        }
-
-		this.perlinNoise();
+		if (window.pageYOffset < (window.innerHeight -100)){
 
 
-        if (this.renderer !== undefined) {
+			if (renderer !== undefined) {
 
-            image(this.renderer, 0, 0);
+				this.renderer = renderer;
 
-        }
+			}
+
+			this.perlinNoise();
+
+
+			if (this.renderer !== undefined) {
+
+				image(this.renderer, 0, 0);
+
+			}
+		}
 
     }
 
