@@ -43,7 +43,7 @@
 // 			hero.style.webkitTransform = "rotateX(90deg)";
 // 		  }
 // 	  }
-  });
+//   });
 
   // Smooth scroll for the navigation menu and links with .scrollto classes
   $(document).on('click', '.nav-menu a, .mobile-nav a, .scrollto', function(e) {
