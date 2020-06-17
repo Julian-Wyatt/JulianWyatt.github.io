@@ -2642,6 +2642,15 @@ function main () {	// eslint-disable-line no-unused-vars
 	let normalBox = document.getElementById("normalBox");
 	normalBox.addEventListener("change",function () {
 
+		if (normalBox.checked){
+			document.getElementById("normalLabel").innerHTML = "Normal Map Style - <strong>Currently:</strong> Point-based"
+			Scene1.ToonShading = false;
+		}
+		else{
+			document.getElementById("normalLabel").innerHTML = "Normal Map Style - <strong>Currently:</strong> Directional"
+			
+		}
+		Scene1.gl.uniform1i(Scene1.program.u_UseToonShading, Scene1.ToonShading);
 		Scene1.gl.uniform1i(Scene1.program.u_whichNormal, normalBox.checked);
 
 	});
@@ -2656,9 +2665,16 @@ function main () {	// eslint-disable-line no-unused-vars
 	});
 
 	let changeStyle = document.getElementById("styleBtn");
-	changeStyle.addEventListener("click", function () {
+	changeStyle.addEventListener("change", function () {
 
-		Scene1.ToonShading = !Scene1.ToonShading;
+
+		Scene1.ToonShading = changeStyle.checked;
+		if (Scene1.ToonShading) {
+			document.getElementById("styleLabel").innerHTML = "Lighting Style - <strong>Currently:</strong> Toon";
+		}
+		else{
+			document.getElementById("styleLabel").innerHTML = "Lighting Style - <strong>Currently:</strong> Point-based";
+		}
 		Scene1.gl.uniform1i(Scene1.program.u_UseToonShading, Scene1.ToonShading);
 
 	});
