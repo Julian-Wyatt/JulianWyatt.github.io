@@ -2066,16 +2066,17 @@ let keypressed = {};
  * @returns {null} No return value
  */
 function main () {	// eslint-disable-line no-unused-vars
-	if (window.screen.width < 1000){
+	// if (window.screen.width < 1000){
 
-		return;
-	}
+	// 	return;
+	// }
 	// Retrieve <canvas> element
 	let glparent = document.getElementById("glWidthParent");
 	let canvas = document.getElementById("webgl");
 	canvas.width = (glparent.offsetWidth);
 	canvas.style.width = (glparent.offsetWidth - 28) + "px";
-	canvas.height = screen.height - 260;
+	canvas.style.marginTop = "10px";
+	canvas.height = window.innerHeight - 260;
 
 
 	// Get the rendering context for WebGL
@@ -2496,6 +2497,12 @@ function main () {	// eslint-disable-line no-unused-vars
 
 		// for events on update/ multi key presses
 		keypressed[ev.keyCode] = true;
+
+		// prevents scroll down on arrow click
+		// space and arrow keys
+		if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+			e.preventDefault();
+		}
 
 		// events on key press
 		if (keypressed["84"]) {
