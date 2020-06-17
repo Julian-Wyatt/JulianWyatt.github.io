@@ -2102,7 +2102,7 @@ function main () {	// eslint-disable-line no-unused-vars
 		// set new width and height of canvas
 		canvas.width = (glparent.offsetWidth);
 		canvas.style.width = (glparent.offsetWidth - 28) + "px";
-		canvas.height = window.outerHeight - 260;
+		canvas.height = window.innerHeight - 280;
 
 		// reset center of canvas
 
