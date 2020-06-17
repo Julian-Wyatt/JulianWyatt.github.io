@@ -375,7 +375,7 @@ class Scene {
 			return;
 
 		}
-		this.ToonShading = true;
+		this.ToonShading = false;
 		this.gl.uniform1i(this.program.u_UseToonShading, this.ToonShading);
 
 		this.program.u_UseNormalMap = this.gl.getUniformLocation(this.program, "u_UseNormalMap");
