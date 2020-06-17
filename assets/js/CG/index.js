@@ -2500,8 +2500,8 @@ function main () {	// eslint-disable-line no-unused-vars
 
 		// prevents scroll down on arrow click
 		// space and arrow keys
-		if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-			e.preventDefault();
+		if([32, 37, 38, 39, 40].indexOf(ev.keyCode) > -1) {
+			ev.preventDefault();
 		}
 
 		// events on key press
