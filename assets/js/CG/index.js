@@ -2664,7 +2664,7 @@ function main () {	// eslint-disable-line no-unused-vars
 
 	});
 
-	let changeStyle = document.getElementById("styleBtn");
+	let changeStyle = document.getElementById("styleBox");
 	changeStyle.addEventListener("change", function () {
 
 
