@@ -101,11 +101,6 @@
 						</p>
 					</div>
 					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding:5px">
-							<button class="btn btn-dark" style="width:100%"  id="wallsBtn">Lower walls / spacebar</button>
-						</div>
-					</div>
-					<div class="row">
 						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding:5px">
 							<button class="btn btn-dark" style="width:100%"  id="channelBtn">Change Channel / t</button>
 						</div>
@@ -115,7 +110,8 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding:5px">
-							<button class="btn btn-dark" style="width:100%"  id="styleBtn">Change Style of lighting / c</button>
+							<!-- <button class="btn btn-dark" style="width:100%"  id="styleBtn">Change Style of lighting / c</button> -->
+							<button class="btn btn-dark" style="width:100%"  id="wallsBtn">Lower walls / spacebar</button>
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding:5px">
 							<button class="btn btn-dark" style="width:100%"  id="chairMoveBtn">Move Chair / b</button>
@@ -140,7 +136,15 @@
 					</div>
 					<div class="row">
 						<div class="col-9">
-							<span>Change normal map from directional to point</span>
+							<span id="styleLabel">Lighting Style - <strong>Currently: </strong> Toon</span>
+						</div>
+						<div class="col-3">
+							<input type="checkbox" id = "styleBox" checked >
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-9">
+							<span id="normalLabel">Normal Map Style - <strong>Currently:</strong> point-based</span>
 						</div>
 						<div class="col-3">
 							<input type="checkbox" id = "normalBox" checked >
