@@ -2076,7 +2076,7 @@ function main () {	// eslint-disable-line no-unused-vars
 	canvas.width = (glparent.offsetWidth);
 	canvas.style.width = (glparent.offsetWidth - 28) + "px";
 	canvas.style.marginTop = "10px";
-	canvas.height = window.innerHeight - 260;
+	canvas.height = window.innerHeight - 280;
 
 
 	// Get the rendering context for WebGL
