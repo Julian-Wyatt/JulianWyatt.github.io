@@ -2645,6 +2645,8 @@ function main () {	// eslint-disable-line no-unused-vars
 		if (normalBox.checked){
 			document.getElementById("normalLabel").innerHTML = "Normal Map Style - <strong>Currently:</strong> Point-based"
 			Scene1.ToonShading = false;
+			document.getElementById("styleLabel").innerHTML = "Lighting Style - <strong>Currently:</strong> Point-based";
+			document.getElementById("styleBox").checked = false;
 		}
 		else{
 			document.getElementById("normalLabel").innerHTML = "Normal Map Style - <strong>Currently:</strong> Directional"
