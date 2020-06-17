@@ -2673,6 +2673,9 @@ function main () {	// eslint-disable-line no-unused-vars
 		Scene1.ToonShading = changeStyle.checked;
 		if (Scene1.ToonShading) {
 			document.getElementById("styleLabel").innerHTML = "Lighting Style - <strong>Currently:</strong> Toon";
+			normalBox.checked = false;
+			Scene1.gl.uniform1i(Scene1.program.u_whichNormal, normalBox.checked);
+			document.getElementById("normalLabel").innerHTML = "Normal Map Style - <strong>Currently:</strong> Directional"
 		}
 		else{
 			document.getElementById("styleLabel").innerHTML = "Lighting Style - <strong>Currently:</strong> Point-based";
