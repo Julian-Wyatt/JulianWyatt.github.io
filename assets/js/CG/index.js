@@ -2146,7 +2146,7 @@ function main () {	// eslint-disable-line no-unused-vars
 	let base = Scene1.newModel("lampBase",0);
 	let stand = Scene1.newModel("lampStand",0);
 	let shade1 = Scene1.newModel("lampShade",0);
-	let bulb1 = Scene1.newModel("bulb",0);
+	let bulb1 = Scene1.newModel("bulb",2);
 
 	lampParentParent.addChild(lampParent);
 	lampParent.addChild(base);
@@ -2378,7 +2378,7 @@ function main () {	// eslint-disable-line no-unused-vars
 	let cable3 = Scene1.newModel("lightCable",0);
 
 
-	let bulb = Scene1.newModel("bulb",0);
+	let bulb = Scene1.newModel("bulb",2);
 	let shade = Scene1.newModel("lampShade",0);
 	lightFitting.addChild(cable1);
 	cable1.addChild(cable2);
