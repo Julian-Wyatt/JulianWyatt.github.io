@@ -1049,6 +1049,9 @@ section {
   #team .name{
 	line-height: 48px;
 }
+#team i{
+	vertical-align: middle;
+}
 
 
 #footer .copyright {
