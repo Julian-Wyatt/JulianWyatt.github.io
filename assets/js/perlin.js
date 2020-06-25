@@ -414,7 +414,6 @@ class Simulation {
 			this.canvas = createCanvas(this.width, this.height);
 			this.canvas.parent("hero");	
 			this.canvas["canvas"].id = "p5canvas";
-			$("#p5canvas").addClass("parallax-back")
             noStroke();
             fill(0);
             ellipseMode(RADIUS);
