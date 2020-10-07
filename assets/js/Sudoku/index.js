@@ -487,6 +487,13 @@ function onOpenCvReady() {
 
 let keypressed = {}
 document.addEventListener("DOMContentLoaded",function(){
+	const context = document.getElementById("canvasOutput").getContext('2d');
+
+	context.fillStyle = '#e6e6e6';
+	context.fillRect(0,0,260,560);
+
+
+
 	sudokuGrid = new sudoku()
 	updateGridObject(sudokuGrid.grid)
 	
