@@ -131,7 +131,7 @@
 			document.getElementById("pdfOnClick").addEventListener("click",function(){
 				var adobeDCView = new AdobeDC.View({clientId: "5f8b561edef94b828f638632cbc4013b", divId: "adobe-pdf"});
 			adobeDCView.previewFile({
-				content:{location: {url: "https://github.com/Julian-Wyatt/JulianWyatt.github.io/blob/master/assets/pdfs/pegasus-paper.pdf"}},
+				content:{location: {url: "./assets/pdfs/pegasus-paper.pdf"}},
 				metaData:{fileName: "pegasus-paper.pdf"}
 			}, {embedMode: "LIGHT_BOX", showPrintPDF: false});
 			})
