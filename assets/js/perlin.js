@@ -382,7 +382,7 @@ class Simulation {
 		let width = document.body.scrollWidth;
 		let height = window.innerHeight;
 		window.addEventListener("resize", function () {
-			if (document.body.scrollWidth > 500) {
+			if (document.body.scrollWidth > 750) {
 				if (width != document.body.scrollWidth || height != window.innerHeight){
 					// callback.particles = []
 					callback.width = document.body.scrollWidth;
