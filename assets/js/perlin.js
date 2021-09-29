@@ -321,7 +321,7 @@ class Simulation {
         if (this.renderer === undefined) {
 
             this.height = window.innerHeight;
-            this.width = windowWidth;
+            this.width = document.body.scrollWidth;
 
         } else {
 
@@ -379,18 +379,18 @@ class Simulation {
 		blendMode(BLEND);
 		
 		let callback = this
-		let width = windowWidth;
+		let width = document.body.scrollWidth;
 		let height = window.innerHeight;
 		window.addEventListener("resize", function () {
-			if (windowWidth > 400) {
-				if (width != windowWidth || height != window.innerHeight){
+			if (document.body.scrollWidth; > 400) {
+				if (width != document.body.scrollWidth; || height != window.innerHeight){
 					// callback.particles = []
-					callback.width = windowWidth
+					callback.width = document.body.scrollWidth;
 					callback.height = window.innerHeight
 	
 	
 					callback.setup();
-					width = windowWidth;
+					width = document.body.scrollWidth;
 					height = window.innerHeight;
 				}
 			}
