@@ -22,6 +22,7 @@
 	<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 	<link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 	<!-- <link href="assets/vendor/venobox/venobox.css" rel="stylesheet"> -->
+	<script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
 
 	<!-- Template Main CSS File -->
 	<link href="assets/css/style.css" rel="stylesheet">
@@ -72,14 +73,28 @@
 							</div>
 							
 						</div>
+						<div class="row" style="margin-left: 10px;margin-top:4px;">
+							<div class="col-9 col-sm-9 col-md-7 col-lg-5 col-xl-5">
+								<i class="icofont-rounded-right"></i>to view the machine learning analysis and paper, please click here:
+							</div>
+							<div class="col d-flex justify-content-start">
+								<a id="pdfOnClickML" class="github"><i class="bx bxs-file-pdf"></i></a>
+							</div>
+							
+						</div>
+						<div class="row" style="margin-left: 10px;margin-top:4px;">
+							<div class="col-9 col-sm-9 col-md-7 col-lg-5 col-xl-5">
+								<i class="icofont-rounded-right"></i>to view the Image Processing paper, please click here:
+							</div>
+							<div class="col d-flex justify-content-start">
+								<a id="pdfOnClickIP" class="github"><i class="bx bxs-file-pdf"></i></a>
+							</div>
+							
+						</div>
 						
 					</div>
 				</div>
 				
-				<br><strong>See below for both written reports (ML report pages 1-4, Image Denoising pages 5-19):</strong>
-		</div>
-		<div class="container col-xl-6" id="pdf1" style="margin-bottom: 20px;margin-top:20px">
-
 		</div>
 	</main><!-- End #main -->
 
@@ -102,13 +117,23 @@
 
 	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 	<!-- insert just before the closing body tag </body> -->
-	<script src='assets/js/pdfviewer.js'></script>
-	<script>
-		var options = {
-			height: "900px",
-			page:1
-		};
-		PDFObject.embed("./assets/pdfs/IP.pdf","#pdf1",options)
+	<script type="text/javascript">
+		document.addEventListener("adobe_dc_view_sdk.ready", function(){ 
+			document.getElementById("pdfOnClickML").addEventListener("click",function(){
+				var adobeDCView = new AdobeDC.View({clientId: "5f8b561edef94b828f638632cbc4013b", divId: "adobe-pdf"});
+			adobeDCView.previewFile({
+				content:{location: {url: "./assets/pdfs/ML.pdf"}},
+				metaData:{fileName: "ML.pdf"}
+			}, {embedMode: "LIGHT_BOX", showPrintPDF: false});
+			})
+			document.getElementById("pdfOnClickIP").addEventListener("click",function(){
+				var adobeDCView = new AdobeDC.View({clientId: "5f8b561edef94b828f638632cbc4013b", divId: "adobe-pdf"});
+			adobeDCView.previewFile({
+				content:{location: {url: "./assets/pdfs/IP.pdf"}},
+				metaData:{fileName: "IP.pdf"}
+			}, {embedMode: "LIGHT_BOX", showPrintPDF: false});
+			})
+		});
 	</script>
 
 	<!-- Vendor JS Files -->
