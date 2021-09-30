@@ -2,7 +2,13 @@
 
 const inViewport = (entries, observer) => {
 	entries.forEach(entry => {
-	  entry.target.classList.toggle("is-inViewport", entry.isIntersecting);
+		if (entry.intersectionRatio < 0.9){
+			entry.target.classList.toggle("is-inViewport", True);
+		}
+		else{
+			entry.target.classList.toggle("is-inViewport", False);
+		}
+	//   entry.target.classList.toggle("is-inViewport", entry.isIntersecting);
 	});
   };
   
