@@ -7,7 +7,7 @@ const inViewport = (entries, observer) => {
   };
   
   const Obs = new IntersectionObserver(inViewport);
-  const obsOptions = {threshold: 0.1,rootMargin:'-200px'}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
+  const obsOptions = {threshold: 0.1,rootMargin:'500px'}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
   
   // Attach observer to every [data-inviewport] element:
   const ELs_inViewport = document.querySelectorAll('[data-inviewport]');
