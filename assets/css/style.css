@@ -29,6 +29,24 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
+/*--------------------------------------------------------------
+# Fade in
+--------------------------------------------------------------*/
+.fadein{
+	animation: fadeInAnim ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeinAnim{
+	0%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+
 
 /*--------------------------------------------------------------
 # Back to top button
