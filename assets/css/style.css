@@ -32,18 +32,14 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Fade in
 --------------------------------------------------------------*/
-.fadein{
-	animation: fadeInAnim ease 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-@keyframes fadeInAnim{
-	0%{
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-     }
+[data-inviewport="scale-in"] { 
+	transition: 1.5s;
+	transform: translateY(-100%);
+	opacity: 0%;
+  }
+  [data-inviewport="scale-in"].is-inViewport { 
+	transform: translateY(0%);
+	opacity: 100%;
 }
 
 
