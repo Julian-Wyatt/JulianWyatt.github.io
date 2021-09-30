@@ -2,17 +2,12 @@
 
 const inViewport = (entries, observer) => {
 	entries.forEach(entry => {
-		if (entry.intersectionRatio>0.2){
-			entry.target.classList.add("is-inViewport");
-		}
-		else{
-			entry.target.classList.remove("is-inViewport");
-		}
+	  entry.target.classList.toggle("is-inViewport", entry.isIntersecting);
 	});
   };
   
   const Obs = new IntersectionObserver(inViewport);
-  const obsOptions = {}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
+  const obsOptions = {threshold: 0.1}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
   
   // Attach observer to every [data-inviewport] element:
   const ELs_inViewport = document.querySelectorAll('[data-inviewport]');
