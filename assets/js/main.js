@@ -9,7 +9,7 @@ if(!!window.IntersectionObserver)
 			entry.target.classList.toggle("is-inViewport", entry.isIntersecting);
 		  });
 		}, 
-		{rootMargin: "200px 0px 0px 0px"});
+		{rootMargin: "200px 0px -100px 0px"});
 	document.querySelectorAll('[data-inviewport]').forEach(EL => {observer.observe(EL)})
 	
 }
