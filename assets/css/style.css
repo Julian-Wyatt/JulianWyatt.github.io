@@ -32,12 +32,12 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Fade in
 --------------------------------------------------------------*/
-[data-inviewport="scale-in"] { 
+[data-inviewport="fade-in"] { 
 	transition: 1.5s;
-	transform: translateY(-100%);
+	transform: translateY(100%);
 	opacity: 0%;
   }
-  [data-inviewport="scale-in"].is-inViewport { 
+  [data-inviewport="fade-in"].is-inViewport { 
 	transform: translateY(0%);
 	opacity: 100%;
 }
