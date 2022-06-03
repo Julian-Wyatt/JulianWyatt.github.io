@@ -46,6 +46,13 @@
     transform: scaleX(1);
 }
 
+@media (min-width: 1024px) {
+    .paper-links {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
 
 /*--------------------------------------------------------------
 # General
