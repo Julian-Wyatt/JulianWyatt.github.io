@@ -82,9 +82,10 @@ if (!!window.IntersectionObserver) {
                     scrollto = 0;
                 }
 
-                $('html, body').animate({
-                    scrollTop: scrollto
-                }, 1500, 'easeInOutExpo');
+                window.scrollTo({
+                    top: scrollto,
+                    behavior: 'smooth'
+                })
 
                 if ($(this).parents('.nav-menu, .mobile-nav').length) {
                     $('.nav-menu .active, .mobile-nav .active').removeClass('active');
