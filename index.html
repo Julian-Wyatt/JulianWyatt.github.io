@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Julian Wyatt</title>
+    <title>Julian Wyatt | DPhil (PhD) Candidate, University of Oxford</title>
+    <meta name="description"
+        content="Julian Wyatt is a final-year DPhil (PhD) candidate in Computer Science at the University of Oxford, working on efficient vision transformers, segmentation and diffusion models.">
 
     <!-- Favicons -->
     <link href="https://img.icons8.com/nolan/64/code-fork.png" rel="icon">
@@ -39,6 +41,38 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
+    <!-- Page-specific tweaks for the About text, skills lists and publication entries -->
+    <style>
+        .section-title p+p {
+            margin-top: 15px;
+        }
+
+        .about .skills-content h4 {
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .about .skills-content .skill-tags span {
+            display: inline-block;
+            background: #eef0f2;
+            color: #3b434a;
+            padding: 5px 15px;
+            margin: 0 8px 8px 0;
+            font-family: "Raleway", sans-serif;
+            font-weight: 600;
+        }
+
+        .resume .pub-item h4 {
+            text-transform: none;
+            line-height: 22px;
+        }
+
+        .resume .pub-item .pub-links a {
+            font-weight: 600;
+            margin-right: 12px;
+        }
+    </style>
+
     <!-- =======================================================
   * Template Name: Laura - v2.0.0
   * Template URL: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/
@@ -56,6 +90,7 @@
             <ul>
                 <li class="active"><a href="#header">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
                 <li><a href="#resume">Resume</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -71,8 +106,8 @@
     <section id="hero" style="background-color: black;">
         <div class="hero-container">
             <h1 id="blah"> Julian Wyatt </h1>
-            <h2 class="text-center">Oxford University Computer Science DPhil Student<br>Medical Imaging Solutions
-                research group</h2>
+            <h2 class="text-center">DPhil (PhD) Candidate in Computer Science, University of Oxford<br>Efficient
+                vision transformers, segmentation, diffusion models</h2>
             <a href="#about" class="btn-scroll scrollto" title="Scroll Down" style="border-radius: 5px;"><i
                     class="bx bx-chevron-down"></i></a>
         </div>
@@ -91,15 +126,20 @@
                     <span>About Me</span>
                     <h2>About Me</h2>
                     <p>
-                        My growing passion for cutting-edge computing technologies, sparked by industry Keynote events
-                        and CES/E3 showcases, led me to delve into unexplored areas of Computer Science—voxels, Machine
-                        Learning, and IoT—ultimately influencing my pursuit of a master's degree. Throughout my academic
-                        journey, I actively engaged in collaborative software engineering projects, with a focus on
-                        applying deep learning to medical imaging, resulting in a workshop paper publication at CVPR on
-                        anomaly detection in brain scans. Now a DPhil student at the University of Oxford, I contribute
-                        to the Medical Imaging Research Group, leveraging my expertise in software engineering and deep
-                        learning to drive innovative solutions in medical imaging and stay at the forefront of
-                        technological advancements.
+                        I am a final-year DPhil (PhD) candidate in Computer Science at the University of Oxford,
+                        supervised by Irina Voiculescu in the Medical Imaging group (OxMedIS) and funded by an EPSRC
+                        scholarship.
+                    </p>
+                    <p>
+                        My research is on selective computation for computer vision: spending compute only where an
+                        image needs it. My published work covers token pruning for segmentation with vision
+                        transformers and landmark detection in X-rays, where my method won the MICCAI 2024
+                        CL-Detection Challenge.
+                    </p>
+                    <p>
+                        Before Oxford, my master's project at Durham, AnoDDPM, applied diffusion models to anomaly
+                        detection and has been cited more than 750 times. I also spent a year at Barclays as a graduate
+                        developer.
                     </p>
                 </div>
 
@@ -120,49 +160,51 @@
                                     <div class="d-flex justify-content-lg-center justify-content-xl-center">
                                         <ul>
                                             <li><i class="icofont-rounded-right"></i> <strong>University:
-                                                </strong>Oxford University</li>
+                                                </strong>University of Oxford</li>
                                             <li><i class="icofont-rounded-right"></i> <strong>Degree: </strong>DPhil
-                                                Computer Science</li>
+                                                (PhD) in Computer Science, 2023 - 2027 (expected)</li>
+                                            <li><i class="icofont-rounded-right"></i> <strong>Group: </strong>Medical
+                                                Imaging group (OxMedIS)</li>
+                                            <li><i class="icofont-rounded-right"></i> <strong>Supervisor:
+                                                </strong>Irina Voiculescu</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6" data-inviewport="fade-in">
-                                    <h4> Soft Skills:</h4>
+                                    <h4> Research Highlights:</h4>
                                     <ul>
-                                        <li><i class="icofont-rounded-right"></i> Determined and strong work ethic</li>
-                                        <li><i class="icofont-rounded-right"></i> Analytical with strong problem solving
-                                            skills</li>
-                                        <li><i class="icofont-rounded-right"></i> Strong leadership skills through
-                                            coaching and playing American Football</li>
-                                        <li><i class="icofont-rounded-right"></i> Networking skills through contacting
-                                            and conversing with Barclays Directors</li>
-                                        <li><i class="icofont-rounded-right"></i> Team working skills through various
-                                            software projects and sporting teams</li>
-                                        <li><i class="icofont-rounded-right"></i> Time management and communication from
-                                            working at a Subway Restaurant and as a waiter</li>
+                                        <li><i class="icofont-rounded-right"></i> AnoDDPM (CVPR Workshops 2022): 750+
+                                            citations, 200+ GitHub stars</li>
+                                        <li><i class="icofont-rounded-right"></i> Winner, MICCAI 2024 CL-Detection
+                                            Challenge</li>
+                                        <li><i class="icofont-rounded-right"></i> ICML Gold Reviewer Award; reviewer
+                                            for NeurIPS, ICML, AAAI and MICCAI</li>
+                                        <li><i class="icofont-rounded-right"></i> Lead demonstrator for Computer Vision
+                                            at Oxford</li>
+                                        <li><i class="icofont-rounded-right"></i> Papers at ICCV Workshops 2025, ICIAP
+                                            2025 and MICCAI Workshops 2026</li>
+                                        <li><i class="icofont-rounded-right"></i> CVPR 2022 travel grant award</li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-6" data-inviewport="fade-in">
                                     <h4> Notable Achievements & Hobbies:</h4>
                                     <ul>
-                                        <li><i class="icofont-rounded-right"></i> Oxford University American Football WR
-                                            Coach 23-present</li>
-                                        <li><i class="icofont-rounded-right"></i> American Football | Coached U16s local
-                                            team 17-21</li>
-                                        <li><i class="icofont-rounded-right"></i> Flag Football National Team | Coached
-                                            in Italy for U15s side | Finished 2nd</li>
-                                        <li><i class="icofont-rounded-right"></i> DU Flag American Football 19-22 |
-                                            20-21 Captain | 21-22 President</li>
-                                        <li><i class="icofont-rounded-right"></i> Collingwood Rounders 20-22 | President
-                                            21-22 | Sports Award 21</li>
-                                        <li><i class="icofont-rounded-right"></i> Collingwood College Pool B team 19-20
-                                            | A team 21-22</li>
-                                        <li><i class="icofont-rounded-right"></i> Mensa IQ 99th Percentile Culture Fair
-                                            Scale</li>
-                                        <li><i class="icofont-rounded-right"></i> Duke of Edinburgh Bronze Award | NCS
-                                            Scheme</li>
+                                        <li><i class="icofont-rounded-right"></i> Oxford University American Football:
+                                            wide receivers coach, 2023 - present</li>
+                                        <li><i class="icofont-rounded-right"></i> Chorley Buccaneers American Football:
+                                            assistant coach for the under-16s, 2017 - 2021</li>
+                                        <li><i class="icofont-rounded-right"></i> National under-15 flag football side:
+                                            coached to 2nd place in Italy</li>
+                                        <li><i class="icofont-rounded-right"></i> Durham University flag football:
+                                            captain 2020/21, president 2021/22</li>
+                                        <li><i class="icofont-rounded-right"></i> Collingwood College rounders:
+                                            president 2021/22, Sports Award 2021</li>
+                                        <li><i class="icofont-rounded-right"></i> Collingwood College pool: B team
+                                            2019/20, A team 2021/22</li>
+                                        <li><i class="icofont-rounded-right"></i> Mensa IQ: 99th percentile on the
+                                            Culture Fair Scale</li>
                                     </ul>
                                 </div>
                             </div>
@@ -176,7 +218,7 @@
                 </div>
                 <div class="row">
                     <div class="skills-content col-lg-12">
-                        <h3>Programming Confidence</h3>
+                        <h3>Core Skills</h3>
                         <div class="row">
                             <div class="col-6">
                                 <div class="progress">
@@ -188,7 +230,7 @@
                                 </div>
 
                                 <div class="progress">
-                                    <span class="skill">Machine Learning<i class="val">95%</i></span>
+                                    <span class="skill">Machine Learning <i class="val">95%</i></span>
                                     <div class="progress-bar-wrap">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="95"
                                             aria-valuemin="0" aria-valuemax="100"></div>
@@ -196,112 +238,171 @@
                                 </div>
 
                                 <div class="progress">
-                                    <span class="skill">PyTorch<i class="val">90%</i></span>
+                                    <span class="skill">PyTorch <i class="val">90%</i></span>
                                     <div class="progress-bar-wrap">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="90"
                                             aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
-
-                                <div class="progress">
-                                    <span class="skill">AWS OCR & NLP Services<i class="val">90%</i></span>
-                                    <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="90"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-
-                                <div class="progress">
-                                    <span class="skill">SQL <i class="val">85%</i></span>
-                                    <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="85"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-
-                                <div class="progress">
-                                    <span class="skill">C# <i class="val">75%</i></span>
-                                    <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="75"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="progress">
-                                    <span class="skill">C++ (Parallel OpenMP)<i class="val">50%</i></span>
-                                    <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="50"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-
                             </div>
                             <div class="col-6">
                                 <div class="progress">
-                                    <span class="skill">Django <i class="val">85%</i></span>
+                                    <span class="skill">NumPy <i class="val">90%</i></span>
+                                    <div class="progress-bar-wrap">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="90"
+                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+
+                                <div class="progress">
+                                    <span class="skill">LaTeX <i class="val">90%</i></span>
+                                    <div class="progress-bar-wrap">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="90"
+                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+
+                                <div class="progress">
+                                    <span class="skill">Slurm <i class="val">85%</i></span>
                                     <div class="progress-bar-wrap">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="85"
                                             aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
-                                <div class="progress">
-                                    <span class="skill">HTML <i class="val">100%</i></span>
-                                    <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="100"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-
-                                <div class="progress">
-                                    <span class="skill">CSS <i class="val">95%</i></span>
-                                    <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="95"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-
-                                <div class="progress">
-                                    <span class="skill">JavaScript <i class="val">85%</i></span>
-                                    <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="85"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-
-                                <div class="progress">
-                                    <span class="skill">Typescript <i class="val">85%</i></span>
-                                    <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="85"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-
-                                <div class="progress">
-                                    <span class="skill">React <i class="val">85%</i></span>
-                                    <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="85"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-
-                                <div class="progress">
-                                    <span class="skill">NodeJS - Express<i class="val">50%</i></span>
-                                    <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="50"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-
-
-
-
                             </div>
                         </div>
+                        <h4>Tools and Libraries</h4>
+                        <p class="skill-tags">
+                            <span>Pandas</span>
+                            <span>scikit-learn</span>
+                            <span>OpenCV</span>
+                            <span>Multi-GPU training</span>
+                            <span>Hydra</span>
+                            <span>WandB</span>
+                            <span>Git</span>
+                            <span>Docker</span>
+                            <span>SQL</span>
+                            <span>JavaScript</span>
+                            <span>TypeScript</span>
+                            <span>C#</span>
+                            <span>Django</span>
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>.NET</span>
+                        </p>
                     </div>
                 </div>
 
             </div>
         </section>
         <!-- End About Me Section -->
+
+        <!-- ======= Research Section ======= -->
+        <section id="research" class="resume">
+            <div class="container">
+
+                <div class="section-title" data-inviewport="fade-in">
+                    <span>Research</span>
+                    <h2>Research</h2>
+                    <p>My research is on selective computation for computer vision: spending compute only where an image
+                        needs it. A full list of papers is on <a
+                            href="https://scholar.google.com/citations?user=FzYQvZUAAAAJ">Google Scholar</a>.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3 class="resume-title" data-inviewport="fade-in">Research Areas</h3>
+                        <div class="resume-item" data-inviewport="fade-in">
+                            <h4>Efficient Vision Transformers</h4>
+                            <p>Token pruning for segmentation. Reg4Pru randomly drops tokens during training to improve
+                                inference reliability. A controlled study of train-time pruning (soft masking, Gumbel
+                                top-k, random routing and learned token scoring) on a DINOv3 ViT-S model shows that
+                                train-time pruning substantially improves segmentation over soft masking.</p>
+                        </div>
+                        <div class="resume-item" data-inviewport="fade-in">
+                            <h4>Landmark Detection</h4>
+                            <p>Domain alignment that selectively localises regions to improve multi-domain performance
+                                in cephalometric X-rays: the winning entry of the MICCAI 2024 CL-Detection Challenge.
+                                Studies of fairness and few-shot incremental landmark detection in collaboration with
+                                the University of Genoa.</p>
+                        </div>
+                        <div class="resume-item" data-inviewport="fade-in">
+                            <h4>Diffusion Models for Anomaly Detection</h4>
+                            <p>AnoDDPM, my master's project at Durham: a partial diffusion strategy with simplex noise
+                                for detecting anomalies in brain MRI, cited more than 750 times.</p>
+                        </div>
+
+                        <h3 class="resume-title" data-inviewport="fade-in">Awards and Service</h3>
+                        <div class="resume-item" data-inviewport="fade-in">
+                            <h4>Awards</h4>
+                            <ul>
+                                <li><strong>Winner</strong>, MICCAI 2024 CL-Detection Challenge: ranked first on both
+                                    test sets for detecting 53 landmarks in cephalometric X-rays (<a
+                                        href="https://www.cs.ox.ac.uk/news/2393-full.html">department news</a>)</li>
+                                <li><strong>ICML Gold Reviewer Award</strong></li>
+                                <li><strong>CVPR 2022 travel grant award</strong> to present AnoDDPM in New Orleans
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="resume-item" data-inviewport="fade-in">
+                            <h4>Service</h4>
+                            <ul>
+                                <li>Reviewer for NeurIPS, ICML, AAAI, MICCAI, CVPR NTIRE, EMA4MICCAI and ISBI</li>
+                                <li>Write a weekly digest of new papers for the research group</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <h3 class="resume-title" data-inviewport="fade-in">Publications</h3>
+                        <div class="resume-item pub-item" data-inviewport="fade-in">
+                            <h4>AnoDDPM: Anomaly Detection with Denoising Diffusion Probabilistic Models using Simplex Noise</h4>
+                            <h5>CVPR Workshops (NTIRE), 2022</h5>
+                            <p><strong>J. Wyatt</strong>, A. Leach, S. M. Schmon, C. G. Willcocks<br>
+                                750+ citations on Google Scholar, 200+ GitHub stars<br>
+                                <span class="pub-links"><a href="https://openaccess.thecvf.com/content/CVPR2022W/NTIRE/html/Wyatt_AnoDDPM_Anomaly_Detection_With_Denoising_Diffusion_Probabilistic_Models_Using_Simplex_CVPRW_2022_paper.html">Paper</a> <a href="https://github.com/Julian-Wyatt/AnoDDPM">Code</a> <a href="anoddpm">Project page</a></span></p>
+                        </div>
+                        <div class="resume-item pub-item" data-inviewport="fade-in">
+                            <h4>How Do Train-Time Pruning Dynamics and Pruning Schedules Affect Retinal Vessel Segmentation?</h4>
+                            <h5>MICCAI Workshops (EMA4MICCAI), 2026</h5>
+                            <p><strong>J. Wyatt</strong>, I. Voiculescu<br>
+                                Controlled study: train-time pruning substantially improves segmentation over soft masking<br>
+                                <span class="pub-links"><a href="https://ora.ox.ac.uk/objects/uuid:21987123-6b52-4263-b20d-ddb24219e58d">Paper</a> <a href="https://github.com/Julian-Wyatt/TrainTimePruningDynamics">Code</a></span></p>
+                        </div>
+                        <div class="resume-item pub-item" data-inviewport="fade-in">
+                            <h4>Reg4Pru: Regularisation Through Random Token Routing for Token Pruning</h4>
+                            <h5>arXiv preprint, 2026</h5>
+                            <p><strong>J. Wyatt</strong>, R. Clark, I. Voiculescu<br>
+                                Randomly drops tokens during training to improve inference reliability<br>
+                                <span class="pub-links"><a href="https://arxiv.org/abs/2602.02163">arXiv</a></span></p>
+                        </div>
+                        <div class="resume-item pub-item" data-inviewport="fade-in">
+                            <h4>Are X-Ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy</h4>
+                            <h5>ICCV Workshops (STREAM), 2025</h5>
+                            <p>R. Di Via, M. Ciranni, D. Marinelli, A. Clement, N. Patel, <strong>J. Wyatt</strong>, F. Odone, M. Santacesaria, I. Voiculescu, V. P. Pastore<br>
+                                <span class="pub-links"><a href="https://ora.ox.ac.uk/objects/uuid:18da2a98-a6b9-47a2-92fc-ff5921a96c1d">Paper</a></span></p>
+                        </div>
+                        <div class="resume-item pub-item" data-inviewport="fade-in">
+                            <h4>A Handful of Data: Evaluating Few-Shot Incremental Landmark Detection</h4>
+                            <h5>ICIAP, 2025</h5>
+                            <p>N. Patel, A. Clement, <strong>J. Wyatt</strong>, R. Di Via, D. Marinelli, M. Ciranni, V. P. Pastore, I. Voiculescu<br>
+                                <span class="pub-links"><a href="https://ora.ox.ac.uk/objects/uuid:274baa45-1f1a-46f8-9c75-a4a61acbce7b">Paper</a></span></p>
+                        </div>
+                        <div class="resume-item pub-item" data-inviewport="fade-in">
+                            <h4>Optimising for the Unknown: Domain Alignment for Cephalometric Landmark Detection</h4>
+                            <h5>arXiv preprint, 2024</h5>
+                            <p><strong>J. Wyatt</strong>, I. Voiculescu<br>
+                                Winning entry, MICCAI 2024 CL-Detection Challenge; oral presentation<br>
+                                <span class="pub-links"><a href="https://arxiv.org/abs/2410.04445">arXiv</a> <a href="https://github.com/Julian-Wyatt/OptimisingfortheUnknown">Code</a></span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End Research Section -->
 
         <!-- ======= My Resume Section ======= -->
         <section id="resume" class="resume">
@@ -310,12 +411,6 @@
                 <div class="section-title" data-inviewport="fade-in">
                     <span>My Resume</span>
                     <h2>My Resume</h2>
-                    <p>In the early stages of my career, I developed my inter-personal skills and responsibilities by
-                        working as a waiter at my local restaurant (2017), as a bet-taker at the Bolton Wanderer's home
-                        ground (2017-2018), and finally as a Sandwich
-                        Artist at Subway fast food restaurant (2018-2019).<br> <strong>Please see below for relevant
-                            work experience.</strong></p>
-                    <!-- <p>I worked at a Subway fast food restaurant 2018-2019 and as a waiter at my local restaurant 2017, developing my inter-personal skills and responsibilities.<br> <strong>Please see below for relevant work experience.</strong></p> -->
                 </div>
 
                 <div class="row">
@@ -324,10 +419,9 @@
                             <h3 class="resume-title">Summary</h3>
                             <div class="resume-item pb-0">
                                 <h4>Julian Wyatt</h4>
-                                <p><em>I am a keen, dedicated and determined computer science DPhil student, with
-                                        aspirations
-                                        to make meaningful research contributions within the medical imaging
-                                        domain.</em></p>
+                                <p><em>Final-year DPhil (PhD) candidate at the University of Oxford, researching
+                                        selective computation for computer vision: efficient vision transformers,
+                                        segmentation and landmark detection.</em></p>
                                 <p>
                                     <i class="icofont-rounded-right"></i> julian_wyatt@hotmail.com
                                 </p>
@@ -336,18 +430,20 @@
 
                         <h3 class="resume-title" data-inviewport="fade-in">Education</h3>
                         <div class="resume-item" data-inviewport="fade-in">
-                            <h4>Oxford University</h4>
-                            <h5>2023 - 2027</h5>
-                            <p><em>Computer Science - DPhil</em></p>
-
+                            <h4>University of Oxford</h4>
+                            <h5>2023 - 2027 (expected)</h5>
+                            <p><em>DPhil (PhD) in Computer Science, Medical Imaging group (OxMedIS)</em></p>
+                            <p><strong>Supervisor:</strong> Irina Voiculescu<br>
+                                <strong>Funding:</strong> EPSRC scholarship<br>
+                                <strong>College:</strong> St Anne's College
+                            </p>
                             <h5>Relevant Modules:</h5>
-                            <p>Graph Representation Learning, Uncertainty in Deep Learning, Computational Medicine,
-                                Geometric Deep Learning</p>
+                            <p>Graph Representation Learning, Uncertainty in Deep Learning</p>
                         </div>
                         <div class="resume-item" data-inviewport="fade-in">
                             <h4>Durham University</h4>
                             <h5>2018 - 2022</h5>
-                            <p><em>Computer Science - 1st Class (Hons.) Master's of Engineering (MEng)</em></p>
+                            <p><em>MEng Computer Science, First Class Honours</em></p>
                             <p><strong>Year 1</strong> - averaged 78% <br>
                                 <strong>Year 2</strong> - averaged 78%
                                 <br>
@@ -374,10 +470,12 @@
                             <h4>UTC@MediaCityUK</h4>
                             <h5>2016 - 2018</h5>
                             <!-- <p><strong>A Level</strong> - Physics - Grade: A, Maths - Grade: A<br> -->
+                            <!-- Grades hidden for now: uncomment this paragraph to show them again
                             <p><strong>A Level</strong> - Physics and Maths - Grades: A and A<br>
                                 <strong>BTEC</strong> - Level 3 BTEC Extended Diploma in Creative Media Production
-                                (Games Design) - Grade: D*D*D<br>
-                                <Strong>Awards: </Strong>Awarded Best Male Student, Best Physicist,
+                                (Games Design) - Grade: D*D*D</p>
+                            -->
+                            <p><Strong>Awards: </Strong>Awarded Best Male Student, Best Physicist,
                                 Best Mobile Game developer, and nominated for Best Mathematician
                                 and Best Game Developer
                             </p>
@@ -385,9 +483,11 @@
                         <div class="resume-item" data-inviewport="fade-in">
                             <h4>Rivington and Blackrod High School</h4>
                             <h5>2011 - 2016</h5>
+                            <!-- Grades hidden for now: uncomment this paragraph to show them again
                             <p> <strong>GCSEs</strong> - 4 A*'s, 4 A's and 2 B's, with Further Maths (A*) and English
-                                Language (A)<br>
-                                <Strong>Awards: </Strong>Leigh Bromwell Trust prize for Maths and Excellence in Science
+                                Language (A)</p>
+                            -->
+                            <p><Strong>Awards: </Strong>Leigh Bromwell Trust prize for Maths and Excellence in Science
                             </p>
 
                         </div>
@@ -397,65 +497,54 @@
 
                         <h3 class="resume-title" data-inviewport="fade-in">Professional Experience</h3>
                         <div class="resume-item" data-inviewport="fade-in">
-
-                            <h4>Barclays</h4>
-                            <h5>2022-2023</h5>
-                            <p><em>Graduate Developer Analyst</em></p>
-                            <p><strong>Other: (Nov-Sep)</strong> Technical lead for internal startup from idea to
-                                production as a winner of the BUK early careers team task, which included a full stack
-                                Django and React architecture deployed in Docker Kubernetes containers. The project
-                                gained traction and popularity from senior directors with the production pilot achieving
-                                its sign-up target.
-                                <br><strong>(Apr-Sep)</strong> Technical lead for secondary internal startup utilising
-                                modern deep learning from idea to early prototype.
-                                <br><strong>Rotation 2 (Apr-Sep)</strong>: Collaborated with another graduate to migrate
-                                an external Java docker project for use internally.
-                                <br><strong>Rotation 1 (Aug-Apr)</strong>: RESTful API and regression tester in BPF
-                                (Barclays Partner Finance) and transitioned to full stack .NET developer.
-                            </p>
-
-                        </div>
-                        <div class="resume-item" data-inviewport="fade-in">
-
-                            <h4>CVPR - New Orleans</h4>
-                            <h5>2022</h5>
-                            <p><em>Master's Research - “<b>AnoDDPM:</b> Anomaly Detection with Denoising Diffusion
-                                    Probabilistic Models using Simplex Noise”</em></p>
-                            <p>University advanced project accepted at the New Trends in Image Restoration and
-                                Enhancement (<b>NTIRE</b>) workshop at the IEEE/CVF Conference on Computer Vision and
-                                Pattern Recognition (<b>CVPR</b>). Developed technical communication
-                                skills through academic poster presentations to worldwide researchers in addition to
-                                <b>peer reviewing</b> for the workshop. Improved time management and adaptability by
-                                simultaneously completing other university work.
-                            </p>
-
+                            <h4>University of Oxford</h4>
+                            <h5>Teaching</h5>
+                            <p><em>Practical Demonstrator (Teaching Assistant)</em></p>
+                            <ul>
+                                <li>Lead demonstrator for Computer Vision (2025/26, 2026/27)</li>
+                                <li>Demonstrator for Artificial Intelligence, Machine Learning, Uncertainty in Deep
+                                    Learning, and Deep Learning in Healthcare</li>
+                            </ul>
                         </div>
                         <div class="resume-item" data-inviewport="fade-in">
                             <h4>Barclays</h4>
-                            <h5>2021</h5>
-                            <p><em>Customer Digital & Data Developer Intern</em></p>
-                            <p>For my second internship with Barclays, I was placed in the Customer Digital & Data
-                                department. This involved working in a small team to research and develop an AWS OCR &
-                                NLP proof of concept for a product evaluation. Additionally,
-                                I produced flowcharts and project requirements to begin automation of the Bank's "New to
-                                Bank" joiner application. Finally, I lead and presented a team pitch outlining
-                                improvements to Barclay's Mobile Live Chat Service,
-                                regarding a user-driven development problem statement and potentially improving the
-                                business customer relations.</p>
+                            <h5>August 2022 - September 2023</h5>
+                            <p><em>Technology Developer Analyst Graduate</em></p>
+                            <ul>
+                                <li>Tech lead for an early-careers group project that won Most Innovative App: a
+                                    full-stack internal tool with personalised recommendations, built with Django and
+                                    React and deployed with Docker and Kubernetes</li>
+                                <li>Took the tool from idea to a production pilot that met its sign-up target;
+                                    recognised by Managing Directors, including the CIO of Business Banking</li>
+                                <li>Tech lead for a second internal project applying deep learning, from idea to early
+                                    prototype</li>
+                                <li>Tested, then developed for, an automated contract-generation system for consumer
+                                    device financing: API and document regression testing, followed by server-side .NET
+                                    development</li>
+                                <li>Worked with another graduate to migrate an external Java Docker project for
+                                    internal use</li>
+                            </ul>
                         </div>
                         <div class="resume-item" data-inviewport="fade-in">
                             <h4>Barclays</h4>
-                            <h5>2020</h5>
-                            <p><em>Mainframe Connectivity Intern</em></p>
-                            Through the struggles of the COVID-19 pandemic I was able to secure a valuable internship
-                            with Barclays where I was placed in the Global Infrastructure department. Here, I worked
-                            with the mainframe connectivity team to complete my technical & non-technical
-                            objectives. These involved: migrating internal bank users of a mainframe application to use
-                            a load balanced system; amending, adding and removing devices located in branches such as
-                            ATM opening times; tidying up decommissioned
-                            connections within the mainframe sysplex. Furthermore, the non-technical objectives notably
-                            included networking with directors & MD's of Barclays.
-                            <!-- <p>/During my time, I completed 5 technical objectives. In summary, I amended, added and removed devices located in branches such as ATM opening times. Tidied up decommissioned connections within the mainframe sysplex. Migrated internal bank users of a mainframe application to use a more resilient system using generic resources (pick which system based on load balance). Furthermore, I completed other objectives including reaching out to directors / managing directors of Barclays to network as well as attending a range of training sessions.</p> -->
+                            <h5>June 2021 - August 2021</h5>
+                            <p><em>Customer Digital &amp; Data Developer Intern</em></p>
+                            <ul>
+                                <li>Built a proof of concept using AWS OCR and NLP services for a product evaluation, in
+                                    a small team</li>
+                                <li>Wrote flowcharts and requirements to begin automating the "New to Bank" joiner
+                                    application</li>
+                                <li>Led and presented a team pitch on improving the mobile live-chat service</li>
+                            </ul>
+                        </div>
+                        <div class="resume-item" data-inviewport="fade-in">
+                            <h4>Barclays</h4>
+                            <h5>July 2020 - August 2020</h5>
+                            <p><em>Mainframe Connectivity Developer Intern</em></p>
+                            <ul>
+                                <li>Migrated internal users of a mainframe application to a load-balanced system</li>
+                                <li>Updated branch device configurations and removed decommissioned connections</li>
+                            </ul>
                         </div>
                         <div class="resume-item" data-inviewport="fade-in">
                             <h4>Software Engineering Group Project</h4>
@@ -622,7 +711,7 @@
                                     src="assets/img/portfolio/anoddpm3-compressed.gif" class="img-fluid" alt=""></div>
                             <div class="portfolio-info">
                                 <h4>AnoDDPM</h4>
-                                <p>Novel anomaly approach - Accepted at CVPR workshop: NTIRE 2022</p>
+                                <p>Diffusion models for anomaly detection - CVPR Workshops (NTIRE) 2022</p>
                                 <div class="details-link"><i class="bx bx-link"></i></div>
 
                             </div>
@@ -845,10 +934,12 @@
                 social links below.<br> I would love to hear from you!</p>
             <p><strong>Email:</strong> julian_wyatt@hotmail.com</p>
             <div class="social-links">
-                <a href="https://github.com/Julian-Wyatt" class="github"><i class="bx bxl-github"></i></a>
-                <a href="https://www.linkedin.com/in/julian-wyatt-284468174/" class="linkedin"><i
+                <a href="https://github.com/Julian-Wyatt" class="github" title="GitHub"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/cs-julianwyatt/" class="linkedin" title="LinkedIn"><i
                         class="bx bxl-linkedin"></i></a>
-                <a href="https://www.cs.ox.ac.uk/people/julian.wyatt/" class="linkedin">
+                <a href="https://scholar.google.com/citations?user=FzYQvZUAAAAJ" class="google-scholar"
+                    title="Google Scholar"><i class="bx bxs-graduation"></i></a>
+                <a href="https://www.cs.ox.ac.uk/people/julian.wyatt/" class="linkedin" title="Oxford department page">
                     <img width="20" height="20" src="https://img.icons8.com/material/24/FFFFFF/student-male--v1.png"
                         alt="student-male--v1" />
 
