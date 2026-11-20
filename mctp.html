@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>MCTP</title>
+
+    <!-- Favicons -->
+    <link href="https://img.icons8.com/nolan/64/code-fork.png" rel="icon">
+    <link href="https://img.icons8.com/nolan/64/code-fork.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Page-specific tweaks for the paper figures and results table -->
+    <style>
+        .paper-figure img {
+            width: 100%;
+            height: auto;
+        }
+
+        .paper-figure figcaption {
+            margin-top: 8px;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        .paper-equation {
+            text-align: center;
+            font-size: 18px;
+            margin: 10px 0 20px;
+        }
+
+        /* Undo the site-wide sudoku-grid table rules (style.css) for this table */
+        .results-table {
+            margin: 0 0 8px;
+        }
+
+        .results-table tr,
+        .results-table tr:first-child {
+            border: 0;
+        }
+
+        .results-table td,
+        .results-table td:first-child,
+        .results-table td:nth-child(3n),
+        .results-table tr:nth-child(3n) td {
+            height: auto;
+            width: auto;
+            border: 0;
+            border-top: 1px solid #dee2e6;
+            font-size: 16px;
+            padding: 6px 10px;
+        }
+
+        .results-table td,
+        .results-table th {
+            font-size: 16px;
+            padding: 6px 10px;
+            text-align: right;
+            vertical-align: middle;
+        }
+
+        .results-table td:first-child,
+        .results-table th:first-child {
+            text-align: left;
+        }
+
+        .results-table .sub-row td:first-child {
+            padding-left: 28px;
+        }
+
+        .results-table .highlight-row {
+            font-weight: 600;
+        }
+    </style>
+
+    <!-- =======================================================
+  * Template Name: Laura - v2.0.0
+  * Template URL: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top  d-flex justify-content-center align-items-center">
+
+        <nav id="nav" class="nav-colour nav-menu-scrolled nav-menu d-none d-lg-block d-md-block">
+            <ul>
+                <li class="active"><a href="./">Home</a></li>
+                <li><a href="./#about">About</a></li>
+                <li><a href="./#resume">Resume</a></li>
+                <li><a href="./#portfolio">Portfolio</a></li>
+                <li><a href="./#contact">Contact</a></li>
+
+            </ul>
+        </nav>
+        <!-- .nav-menu -->
+
+    </header>
+    <!-- End Header -->
+
+    <main id="main">
+        <div class="container align-content-center smallMargin">
+            <div class="paper-header">
+                <h2>Token Pruning Needs a Protected Sink Token: Coherent Spatial Aggregation in Vision Transformers</h2>
+                <div class="row" style="margin-top: 40px;">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3">
+                        <h3>Julian Wyatt</h3>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3">
+                        <h3>James Willoughby</h3>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3">
+                        <h3>Allison Clement</h3>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3">
+                        <h3>Irina Voiculescu</h3>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <h4>Department of Computer Science, University of Oxford<br><br>arXiv preprint, 2026</h4>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="abstract">
+                <p>
+                    <b>Abstract</b> Vision Transformers (ViTs) are a predominant architecture for computer vision, with token reduction emerging as a popular paradigm to improve their efficiency. Prior work compares reduction algorithms, but not how models
+                    respond to them, nor how their response changes with model depth. We propose Monte Carlo Token Pruning (MCTP), which estimates each token&rsquo;s impact on the prediction when tokens are explicitly removed during the forward pass.
+                    Applying MCTP to recent pretrained models, we observe that most, such as DINOv3, maintain a similar ranking of token importance at every depth (high <b>Coherent Aggregation</b>), while SigLIP 2 does not. This coherence requires
+                    predictions to survive pruning, which depends on keeping high-norm &ldquo;sink&rdquo; tokens: prefix tokens are kept by design, while prefix-free SigLIP 2 forms them on patch tokens, which pruning may remove. We show that in removing
+                    DINOv3&rsquo;s prefix tokens, its predictions and coherence collapse, while protecting only 5 tokens for SigLIP 2 cuts the token impact outside the object&rsquo;s bounding box by up to 62%. Beyond this, MCTP offers a post-hoc method
+                    to evaluate how a pretrained ViT responds to pruning, and suggests that token reduction methods should keep &ldquo;sinks&rdquo;.
+                </p>
+            </div>
+
+            <div class="row paper-links">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 ">
+                    <!-- TODO: arXiv abstract URL (https://arxiv.org/abs/XXXX.XXXXX) once the paper is public -->
+                    <a href="#">
+                        <h4 style="text-align: center"><i class="bx bx-book"></i>&nbsp;arXiv</h4>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 ">
+                    <!-- TODO: arXiv PDF URL (https://arxiv.org/pdf/XXXX.XXXXX) once the paper is public -->
+                    <a href="#">
+                        <h4 style="text-align: center"><i class="bx bxs-file-pdf"></i>&nbsp;Paper</h4>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 ">
+                    <a href="https://github.com/Julian-Wyatt/MCTP">
+                        <h4 style="text-align: center"><i class="bx bxl-github"></i>&nbsp;Code</h4>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 ">
+                    <a href="https://github.com/Julian-Wyatt/MCTP/blob/main/notebooks/mctp_demo.ipynb">
+                        <h4 style="text-align: center"><i class="bx bx-play-circle"></i>&nbsp;Demo</h4>
+                    </a>
+                </div>
+            </div>
+
+            <figure class="paper-figure" style="margin-top: 30px;">
+                <img src="./assets/img/portfolio/mctp-teaser.jpg" alt="Token-impact maps at pruning depths 3, 6 and 9 for DINOv3, SigLIP 2, and SigLIP 2 with its five highest-norm tokens protected">
+                <figcaption>
+                    <b>Coherent Aggregation.</b> Token-impact maps for linear-probed ViT-B/16s, pruning once at block 3, 6 or 9 (selected examples). DINOv3 places its impact on the object at every depth; SigLIP 2 does not, until its five highest-norm
+                    tokens (white &times;) are protected from pruning.
+                </figcaption>
+            </figure>
+
+            <h2 style="margin-top: 30px;">Approach</h2>
+            <p>
+                <b>M</b>onte <b>C</b>arlo <b>T</b>oken <b>P</b>runing (MCTP) measures how much each patch token of a pretrained Vision Transformer matters when tokens are removed inside the network. A linear-probed model is pruned once, at the input of
+                block <i>l</i>. Blocks 0 to <i>l</i>&minus;1 run once per image; then, in each of <i>M</i> = 1,000 draws, about 10% of the patch tokens, sampled as random square regions, continue through the remaining blocks together with the prefix
+                tokens ([CLS] and registers). For each token <i>i</i>, the probability of the unpruned top-1 class <i>&ycirc;</i> over the draws that keep it is compared with the draws that drop it:
+            </p>
+            <p class="paper-equation">
+                &Delta;<sub><i>i</i></sub> = E[ <i>p</i><sub><i>&ycirc;</i></sub> | <i>i</i> kept ] &minus; E[ <i>p</i><sub><i>&ycirc;</i></sub> | <i>i</i> dropped ]
+            </p>
+            <p>
+                Because every draw reuses the cached blocks before <i>l</i>, a 1,000-draw run at <i>l</i> = 6 costs about as much as 47 full forward passes. Repeating this at several depths shows whether a model ranks its tokens the same way wherever it
+                is pruned.
+            </p>
+            <figure class="paper-figure">
+                <img src="./assets/img/portfolio/mctp-method.png" alt="MCTP pipeline: blocks before l run once, M random token subsets run through the remaining blocks, and each token's draws are grouped into its impact">
+                <figcaption>
+                    <b>Monte Carlo Token Pruning.</b> In each of <i>M</i> draws, a subset &tau;<sub><i>t</i></sub> of the patch tokens runs through blocks <i>l</i> to <i>L</i>&minus;1. Grouping the draws by whether they keep token <i>i</i> gives
+                    its impact &Delta;<sub><i>i</i></sub>, and one map per pruning depth.
+                </figcaption>
+            </figure>
+
+            <h3 style="margin-top: 30px;">Coherent Aggregation</h3>
+            <p>
+                A model shows <b>Coherent Aggregation</b> when its token-impact maps rank tokens the same way at every pruning depth. Over the ImageNet-1k validation set, DINOv3&rsquo;s maps agree closely across depths (Spearman correlation 0.84&ndash;0.95),
+                while SigLIP 2&rsquo;s do not (0.15&ndash;0.58).
+            </p>
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <figure class="paper-figure">
+                        <img src="./assets/img/portfolio/mctp-cross-depth.png" alt="Spearman correlation and top-10% overlap of token impacts between pruning depths 0, 3, 6 and 9, DINOv3 below the diagonal and SigLIP 2 above">
+                        <figcaption>
+                            <b>Cross-depth consistency.</b> Spearman correlation (left) and top-10% overlap (right) between token-impact maps at different pruning depths, averaged over the ImageNet-1k validation set. DINOv3 is below the diagonal and
+                            SigLIP 2 above it.
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;">Sink Tokens</h3>
+            <p>
+                Coherence needs predictions that survive pruning, and that depends on keeping the high-norm &ldquo;sink&rdquo; tokens that hold global context. DINOv3&rsquo;s sinks are mainly its registers, which are prefix tokens and so are never pruned.
+                SigLIP 2 has no prefix tokens: from around block 6 its sinks form on a few patch tokens, which pruning can remove. Removing DINOv3&rsquo;s prefix tokens at the point of pruning breaks its coherence, while protecting SigLIP 2&rsquo;s
+                five highest-norm tokens moves its impact back onto the object; five random tokens do not.
+            </p>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <figure class="paper-figure">
+                        <img src="./assets/img/portfolio/mctp-token-norms.jpg" alt="Patch-token norms for unpruned DINOv3 and SigLIP 2 at blocks 0, 3, 5, 6 and 9 on a shared log scale">
+                        <figcaption>
+                            <b>Token norms.</b> Patch-token &ell;<sub>2</sub> norms for unpruned DINOv3 and SigLIP 2 at blocks 0, 3, 5, 6 and 9, relative to the median patch-token norm, on a shared log scale. The strip above DINOv3 shows its prefix
+                            tokens ([CLS] first, then the four registers).
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <figure class="paper-figure">
+                        <img src="./assets/img/portfolio/mctp-interventions.jpg" alt="Token-impact maps for DINOv3 with its prefix tokens removed, and for SigLIP 2 with five random tokens protected, at pruning depths 0, 3, 6 and 9">
+                        <figcaption>
+                            <b>Interventions.</b> Token-impact maps for the ostrich image above at each pruning depth. Top: DINOv3 with its prefix tokens removed at the point of pruning. Bottom: SigLIP 2 with five <i>random</i> tokens (white &times;)
+                            protected, a control for protecting its highest-norm tokens.
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <p style="margin-top: 10px;">
+                <b>Off-box mass</b> <i>m</i> measures how much of a map&rsquo;s positive impact falls outside the object&rsquo;s bounding boxes, normalised so that a uniform map scores 1 (lower is better). <b>Stability</b> is the share of draws at
+                <i>l</i> = 6 whose top-1 prediction matches the unmodified model&rsquo;s unpruned prediction.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-sm results-table">
+                    <thead>
+                        <tr>
+                            <th>Intervention</th>
+                            <th><i>m</i>, <i>l</i>=0</th>
+                            <th><i>m</i>, <i>l</i>=3</th>
+                            <th><i>m</i>, <i>l</i>=6</th>
+                            <th><i>m</i>, <i>l</i>=9</th>
+                            <th>Stability, <i>l</i>=6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DINOv3 B/16</td>
+                            <td>0.29</td>
+                            <td>0.30</td>
+                            <td>0.30</td>
+                            <td>0.29</td>
+                            <td>49.4%</td>
+                        </tr>
+                        <tr class="sub-row">
+                            <td>Prefix removed</td>
+                            <td>0.89</td>
+                            <td>0.82</td>
+                            <td>0.41</td>
+                            <td>0.29</td>
+                            <td>3.9%</td>
+                        </tr>
+                        <tr>
+                            <td>SigLIP 2 B/16</td>
+                            <td>0.94</td>
+                            <td>1.17</td>
+                            <td>0.99</td>
+                            <td>0.89</td>
+                            <td>8.7%</td>
+                        </tr>
+                        <tr class="sub-row">
+                            <td>Baseline (matched)</td>
+                            <td>0.93</td>
+                            <td>1.14</td>
+                            <td>0.95</td>
+                            <td>0.87</td>
+                            <td>8.7%</td>
+                        </tr>
+                        <tr class="sub-row highlight-row">
+                            <td>Top five protected</td>
+                            <td>0.93</td>
+                            <td>0.67</td>
+                            <td>0.36</td>
+                            <td>0.54</td>
+                            <td>36.6%</td>
+                        </tr>
+                        <tr class="sub-row">
+                            <td>Test-time registers</td>
+                            <td>1.08</td>
+                            <td>1.13</td>
+                            <td>0.40</td>
+                            <td>0.61</td>
+                            <td>30.9%</td>
+                        </tr>
+                        <tr class="sub-row">
+                            <td>Random five protected</td>
+                            <td>1.00</td>
+                            <td>1.16</td>
+                            <td>1.02</td>
+                            <td>0.93</td>
+                            <td>11.7%</td>
+                        </tr>
+                        <tr class="sub-row">
+                            <td>Empty register</td>
+                            <td>1.06</td>
+                            <td>1.17</td>
+                            <td>0.98</td>
+                            <td>0.88</td>
+                            <td>8.7%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size: 15px;">
+                Over the ImageNet-1k validation set. DINOv3 rows use a probe on mean-pooled patch tokens. Protected tokens are excluded from the map scores, and the matched baseline excludes the top-five positions from the unmodified SigLIP 2 maps.
+            </p>
+
+            <h3 style="margin-top: 10px;">Conclusion</h3>
+            <ul>
+                <li>Most pretrained ViTs, such as DINOv3, rank token importance similarly whichever depth they are pruned at (high Coherent Aggregation); SigLIP 2 does not.</li>
+                <li>Coherence requires predictions to survive pruning, which depends on keeping high-norm &ldquo;sink&rdquo; tokens. Removing DINOv3&rsquo;s prefix tokens collapses its predictions and coherence.</li>
+                <li>Protecting only 5 of SigLIP 2&rsquo;s 441 patch tokens cuts the token impact outside the object&rsquo;s bounding box by up to 62%, matching or beating test-time registers without changing the model&rsquo;s activations.</li>
+                <li>Token reduction methods should keep sinks.</li>
+            </ul>
+
+            <h3 style="margin-top: 10px;">Code</h3>
+            <p>
+                The code, the DINOv3 and SigLIP 2 linear probes and a demo notebook are on <a href="https://github.com/Julian-Wyatt/MCTP">GitHub</a>. The notebook computes token-impact maps at depths 0, 3, 6 and 9 for DINOv3 and SigLIP 2 on any
+                image, and runs on a laptop CPU in about 3 minutes.
+            </p>
+
+            <div class="abstract">
+                <h3>Citation</h3>
+                <!-- TODO: replace XXXX.XXXXX with the arXiv identifier once the paper is public -->
+                <pre style="white-space: pre;">
+<code style="margin-left:20px">@article{wyatt2026protectedsink,
+	author  = {Wyatt, Julian and Willoughby, James and Clement, Allison and Voiculescu, Irina},
+	title   = {Token Pruning Needs a Protected Sink Token: Coherent Spatial Aggregation in Vision Transformers},
+	journal = {arXiv preprint arXiv:XXXX.XXXXX},
+	year    = {2026}
+}</code>
+				</pre>
+            </div>
+        </div>
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container" id="contact">
+            <h3>Julian Wyatt</h3>
+            <p>If you wish to contact me to ask any questions about any of my work or to view my work, please use the social links below.<br> I would love to hear from you!</p>
+            <p><strong>Email:</strong> julian_wyatt@hotmail.com</p>
+            <div class="social-links">
+                <a href="https://github.com/Julian-Wyatt" class="github"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/julian-wyatt-284468174/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+            <br> Favicon Rights are owned by: <a href="https://www.icons8.com">icons8.com</a>
+
+
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/mobileNav.js"></script>
+</body>
+
+</html>
