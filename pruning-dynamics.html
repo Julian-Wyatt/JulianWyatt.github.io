@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Train-Time Pruning Dynamics</title>
+
+    <!-- Favicons -->
+    <link href="https://img.icons8.com/nolan/64/code-fork.png" rel="icon">
+    <link href="https://img.icons8.com/nolan/64/code-fork.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Page-specific tweaks for the paper figures and results tables -->
+    <style>
+        .paper-figure img {
+            width: 100%;
+            height: auto;
+        }
+
+        .paper-figure figcaption {
+            margin-top: 8px;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        /* Undo the site-wide sudoku-grid table rules (style.css) for these tables */
+        .results-table {
+            margin: 0 0 8px;
+        }
+
+        .results-table tr,
+        .results-table tr:first-child {
+            border: 0;
+        }
+
+        .results-table td,
+        .results-table td:first-child,
+        .results-table td:nth-child(3n),
+        .results-table tr:nth-child(3n) td {
+            height: auto;
+            width: auto;
+            border: 0;
+            border-top: 1px solid #dee2e6;
+            font-size: 16px;
+            padding: 6px 10px;
+        }
+
+        .results-table td,
+        .results-table th {
+            font-size: 16px;
+            padding: 6px 10px;
+            text-align: right;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .results-table td:first-child,
+        .results-table th:first-child {
+            text-align: left;
+        }
+
+        .results-table .highlight-row {
+            font-weight: 600;
+        }
+
+        .results-table .std {
+            font-size: 13px;
+            color: #6c757d;
+        }
+
+        /* Table 2 has a column per block, so it needs tighter cells */
+        .schedule-table td,
+        .schedule-table td:first-child,
+        .schedule-table td:nth-child(3n),
+        .schedule-table tr:nth-child(3n) td,
+        .schedule-table th {
+            font-size: 14px;
+            padding: 6px 6px;
+        }
+
+        .table-note {
+            font-size: 15px;
+        }
+    </style>
+
+    <!-- =======================================================
+  * Template Name: Laura - v2.0.0
+  * Template URL: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top  d-flex justify-content-center align-items-center">
+
+        <nav id="nav" class="nav-colour nav-menu-scrolled nav-menu d-none d-lg-block d-md-block">
+            <ul>
+                <li class="active"><a href="./">Home</a></li>
+                <li><a href="./#about">About</a></li>
+                <li><a href="./#resume">Resume</a></li>
+                <li><a href="./#portfolio">Portfolio</a></li>
+                <li><a href="./#contact">Contact</a></li>
+
+            </ul>
+        </nav>
+        <!-- .nav-menu -->
+
+    </header>
+    <!-- End Header -->
+
+    <main id="main">
+        <div class="container align-content-center smallMargin">
+            <div class="paper-header">
+                <h2>How Do Train-Time Pruning Dynamics and Pruning Schedules Affect Retinal Vessel Segmentation?</h2>
+                <div class="row" style="margin-top: 40px;">
+                    <div class="col-6">
+                        <h3>Julian Wyatt</h3>
+                    </div>
+                    <div class="col-6">
+                        <h3>Irina Voiculescu</h3>
+                    </div>
+                    <div class="col-12">
+                        <h4>Department of Computer Science, University of Oxford<br><br>MICCAI 2026 Workshops: Efficient Medical AI (EMA4MICCAI)</h4>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="abstract">
+                <p>
+                    <b>Abstract</b> Vision Transformers (ViTs) have become a prevalent architecture in modern computer vision due to their strong scaling with foundation models and generalisability under self-supervised learning. However, with their strong
+                    expressivity comes quadratic computational complexity with respect to the number of tokens. Many methods seek to reduce the total token count to improve efficiency while maintaining quantitative performance for downstream tasks. Although
+                    token pruning has demonstrated promising efficiency gains, its application to dense segmentation remains comparatively under-explored due to its additional challenges. Therefore, we propose a controlled empirical study that isolates
+                    the challenging design choices over the FIVES retinal blood vessel segmentation dataset. We find that exposing models to <i>any</i> train-time pruning substantially improves segmentation performance relative to soft-masking approaches.
+                    At matched throughput, pruning more frequently improves mIoU, while pruning at three selected blocks better preserves centerline and boundary metrics. However, on the 12-block ViT-S, the overhead of per-block pruning limits throughput
+                    gains despite further reducing GFLOPs.
+                </p>
+            </div>
+
+            <div class="row paper-links">
+                <div class="col-4">
+                    <a href="https://papers.miccai.org/miccai-2026-sat/EMA_018.html">
+                        <h4 style="text-align: center"><i class="bx bx-book"></i>&nbsp;MICCAI</h4>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="https://papers.miccai.org/miccai-2026-sat/paper/EMA_018.pdf">
+                        <h4 style="text-align: center"><i class="bx bxs-file-pdf"></i>&nbsp;Paper</h4>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="https://github.com/Julian-Wyatt/TrainTimePruningDynamics">
+                        <h4 style="text-align: center"><i class="bx bxl-github"></i>&nbsp;Code</h4>
+                    </a>
+                </div>
+            </div>
+
+            <figure class="paper-figure" style="margin-top: 30px;">
+                <img src="./assets/img/portfolio/pruning-dynamics-qualitative.jpg" alt="Vessel segmentation probabilities on three FIVES test quadrants for the unpruned EoMT and the DynamicViT, Reg4Pru, Gumbel and CROPR pruned models, next to the input and ground truth">
+                <figcaption>
+                    <b>Qualitative segmentation results.</b> Final-block segmentation probabilities (hot colour map) for single-seed checkpoints on FIVES test images; ground-truth vessels are shown in green. Every pruned model keeps 70% of its tokens
+                    at each of blocks 3, 6 and 9. DynamicViT, which only soft-masks tokens during training, degrades once tokens are actually removed.
+                </figcaption>
+            </figure>
+
+            <h2 style="margin-top: 30px;">Approach</h2>
+            <p>
+                Self-attention compares every pair of tokens, so a ViT&rsquo;s cost grows quadratically with the number of tokens, and the high-resolution inputs that vessel segmentation needs make this worse. Token pruning removes tokens as they pass
+                through the network, but it is harder to apply to dense segmentation: the decoder must rebuild a dense mask from the kept tokens, hard token removal is non-differentiable, and pruning schedules vary widely across the literature. Rather
+                than proposing a new pruning method, this study isolates two design choices that prior work confounds, and asks:
+            </p>
+            <ol>
+                <li>How do train-time pruning dynamics affect dense segmentation?</li>
+                <li>Which pruning schedule gives the best trade-off between FLOPs and throughput?</li>
+                <li>Following from RQ 2, which schedule is best at detecting difficult vessels and has the highest boundary metrics?</li>
+            </ol>
+            <p>
+                Every model shares the Encoder-only Mask Transformer (<a href="https://github.com/tue-mps/eomt">EoMT</a>) with a DINOv3 ViT-S backbone, adapted to binary segmentation with a single query token. Models are trained on
+                <a href="https://figshare.com/articles/figure/FIVES_A_Fundus_Image_Dataset_for_AI-based_Vessel_Segmentation/19688169">FIVES</a>, 750 fundus images at 2048&times;2048, each split into four 1024&times;1024 quadrants and partitioned 70:20:10
+                into train, validation and test sets. By default, a pruning scorer keeps the top-<i>k</i> patch tokens at the end of blocks 3, 6 and 9 with a 70% keep rate per stage, and the pruned tokens are reinserted before the final block.
+                Segmentation is scored by vessel mIoU, centerline Dice (cl-Dice), boundary IoU (b-IoU) and centerline recall (cl-Recall), and efficiency by GFLOPs per image and forward-pass throughput on one H100 at batch size 8.
+            </p>
+
+            <h3 style="margin-top: 30px;">RQ 1: Train-Time Pruning Dynamics</h3>
+            <p>
+                Turning soft keep scores into a hard top-<i>k</i> selection is non-differentiable, so methods differ in how a model meets pruning during training. <b>Soft</b> train-time pruning masks pruned tokens out of attention but keeps the full
+                sequence; <b>hard</b> train-time pruning removes them from the sequence in the forward pass. All variants share the EoMT decoder and pruning scaffold:
+            </p>
+            <ul>
+                <li><b>DynamicViT</b>: Gumbel-Softmax keep decisions applied as an attention mask (soft), trained with DynamicViT&rsquo;s budget loss.</li>
+                <li><b>Gumbel Pruning</b>: the same scorer and budget loss, but tokens are removed with a hard top-<i>k</i> during training.</li>
+                <li><b>Reg4Pru</b>: soft masking, regularised by randomly routing tokens from an early block to a late block during training.</li>
+                <li><b>Random (eval-only)</b>: the Reg4Pru weights, pruning a random set of tokens at evaluation.</li>
+                <li><b>CROPR</b>: a learnable-query cross-attention scorer on detached features, supervised against the ground-truth mask by an auxiliary head (hard).</li>
+            </ul>
+            <div class="table-responsive">
+                <table class="table table-sm results-table">
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>mIoU &uarr;</th>
+                            <th>cl-Dice &uarr;</th>
+                            <th>b-IoU &uarr;</th>
+                            <th>cl-Recall &uarr;</th>
+                            <th>GFLOPs &darr;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EoMT (no pruning)</td>
+                            <td>0.858 <span class="std">&plusmn;.000</span></td>
+                            <td>0.931 <span class="std">&plusmn;.000</span></td>
+                            <td>0.835 <span class="std">&plusmn;.000</span></td>
+                            <td>0.903 <span class="std">&plusmn;.000</span></td>
+                            <td>511</td>
+                        </tr>
+                        <tr>
+                            <td>DynamicViT</td>
+                            <td>0.617 <span class="std">&plusmn;.033</span></td>
+                            <td>0.662 <span class="std">&plusmn;.064</span></td>
+                            <td>0.415 <span class="std">&plusmn;.077</span></td>
+                            <td>0.816 <span class="std">&plusmn;.018</span></td>
+                            <td>316</td>
+                        </tr>
+                        <tr>
+                            <td>Gumbel Pruning</td>
+                            <td>0.826 <span class="std">&plusmn;.003</span></td>
+                            <td>0.912 <span class="std">&plusmn;.002</span></td>
+                            <td>0.796 <span class="std">&plusmn;.003</span></td>
+                            <td>0.868 <span class="std">&plusmn;.003</span></td>
+                            <td>316</td>
+                        </tr>
+                        <tr>
+                            <td>Random (eval-only)</td>
+                            <td>0.826 <span class="std">&plusmn;.001</span></td>
+                            <td>0.914 <span class="std">&plusmn;.001</span></td>
+                            <td>0.794 <span class="std">&plusmn;.001</span></td>
+                            <td>0.891 <span class="std">&plusmn;.001</span></td>
+                            <td>316</td>
+                        </tr>
+                        <tr>
+                            <td>Reg4Pru</td>
+                            <td>0.848 <span class="std">&plusmn;.005</span></td>
+                            <td>0.918 <span class="std">&plusmn;.006</span></td>
+                            <td>0.813 <span class="std">&plusmn;.011</span></td>
+                            <td>0.900 <span class="std">&plusmn;.003</span></td>
+                            <td>316</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td>CROPR</td>
+                            <td>0.858 <span class="std">&plusmn;.001</span></td>
+                            <td>0.930 <span class="std">&plusmn;.000</span></td>
+                            <td>0.833 <span class="std">&plusmn;.001</span></td>
+                            <td>0.900 <span class="std">&plusmn;.000</span></td>
+                            <td>313</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note">
+                Segmentation after the final block on the FIVES test set, mean &plusmn; std over three seeds. All pruned models keep 70% of tokens at each of blocks 3, 6 and 9, with tokens reinserted at the end of the penultimate block.
+            </p>
+            <p>
+                Models must experience token removal during training. Soft masking regularises token-to-token communication in attention, but never exposes the feed-forward layers that follow to the sparse token sequence used at inference. Across a
+                sweep of keep rates, Gumbel pruning stays close to the dense ceiling while DynamicViT collapses as more tokens are pruned.
+            </p>
+            <figure class="paper-figure">
+                <img src="./assets/img/portfolio/pruning-dynamics-keep-rate.png" alt="mIoU, cl-Dice and cl-recall against throughput for Gumbel pruning and DynamicViT at keep rates 0.5 to 0.9, with the unpruned model as a dashed ceiling">
+                <figcaption>
+                    <b>Keep-rate sweep (RQ 1).</b> Single-seed keep rates from 0.5 to 0.9 for Gumbel pruning and DynamicViT. The dashed line is the dense (no-pruning) ceiling, with its marker at the dense throughput. Without hard train-time pruning,
+                    performance collapses.
+                </figcaption>
+            </figure>
+            <p>
+                Auxiliary supervision also changes which tokens are pruned. DynamicViT&rsquo;s budget loss gives a graded ranking around the vessels, whereas hard pruning in the forward pass leads Gumbel pruning to a strongly vessel-like selection at
+                the first prune block. CROPR&rsquo;s directly supervised scores are less consistent in places, such as right of the optic disc, yet CROPR scores highest, which suggests that direct pruning supervision matters more than a smooth score map.
+            </p>
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <figure class="paper-figure">
+                        <img src="./assets/img/portfolio/pruning-dynamics-policy.jpg" alt="Two FIVES quadrants overlaid with the tokens that DynamicViT, Gumbel pruning and CROPR prune at blocks 3, 6 and 9">
+                        <figcaption>
+                            <b>Selected pruning policy.</b> Tokens pruned at blocks 3, 6 and 9 are coloured black, cyan and orange, overlaid on the input image; tokens kept through every prune stage show the input colour.
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;">RQ 2 &amp; 3: Pruning Schedules</h3>
+            <p>
+                Pruning schedules in the literature range from a single stage, to a few selected blocks, to every block. Keeping the CROPR setup and varying only the schedule, the study compares: (i) <b>1-stage</b>, pruning once at block 3 with keep rate
+                &rho;; (ii) <b>3-stage</b>, a geometric schedule (&rho;, &rho;<sup>2</sup>, &rho;<sup>3</sup>) at blocks 3, 6 and 9; and (iii) <b>per-block</b>, removing a fixed number of tokens at every block. &rho; is swept from 0.2 to 0.9 for
+                1-stage and from 0.5 to 0.9 for 3-stage, and per-block from 256 to 384 tokens per block.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-sm results-table schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Schedule</th>
+                            <th>B1</th>
+                            <th>B2</th>
+                            <th>B3</th>
+                            <th>B4</th>
+                            <th>B5</th>
+                            <th>B6</th>
+                            <th>B7</th>
+                            <th>B8</th>
+                            <th>B9</th>
+                            <th>B10</th>
+                            <th>B11</th>
+                            <th>B12</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-stage</td>
+                            <td>4101</td>
+                            <td>4101</td>
+                            <td>4101</td>
+                            <td>1640</td>
+                            <td>1640</td>
+                            <td>1640</td>
+                            <td>1640</td>
+                            <td>1640</td>
+                            <td>1640</td>
+                            <td>1641</td>
+                            <td>1641</td>
+                            <td>4102</td>
+                        </tr>
+                        <tr>
+                            <td>3-stage</td>
+                            <td>4101</td>
+                            <td>4101</td>
+                            <td>4101</td>
+                            <td>2872</td>
+                            <td>2872</td>
+                            <td>2872</td>
+                            <td>2008</td>
+                            <td>2008</td>
+                            <td>2008</td>
+                            <td>1409</td>
+                            <td>1409</td>
+                            <td>4102</td>
+                        </tr>
+                        <tr>
+                            <td>Per-block</td>
+                            <td>4101</td>
+                            <td>3752</td>
+                            <td>3400</td>
+                            <td>3048</td>
+                            <td>2696</td>
+                            <td>2344</td>
+                            <td>1992</td>
+                            <td>1640</td>
+                            <td>1288</td>
+                            <td>937</td>
+                            <td>584</td>
+                            <td>4102</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note">
+                Example total token counts entering each block: 1-stage (&rho; = 0.4), 3-stage (&rho; = 0.7 per stage) and per-block (~352 tokens removed per block). The query token is inserted before block 10 (the final <i>L</i> = 3 blocks), and
+                pruned tokens are reinserted before block 12.
+            </p>
+            <p>
+                Pruning more often generally improves segmentation, but every extra pruning stage adds overhead: per-block pruning keeps cutting GFLOPs without a matching gain in throughput on the 12-block ViT-S. Pruning more tokens therefore does
+                not guarantee a faster model, or a better one.
+            </p>
+            <figure class="paper-figure">
+                <img src="./assets/img/portfolio/pruning-dynamics-schedules.png" alt="mIoU, cl-Dice and cl-recall against throughput for 1-stage, 3-stage and per-block pruning schedules, with the unpruned model as a dashed ceiling">
+                <figcaption>
+                    <b>Throughput&ndash;quality trade-off (RQ 2 &amp; 3).</b> Mean and &plusmn; one standard deviation over three seeds for 1-stage (&rho; = 0.2&rarr;0.9), 3-stage (&rho; = 0.5&rarr;0.9) and per-block (256&rarr;384 tokens per block)
+                    schedules. The dashed line is the dense (no-pruning) ceiling, with its marker at the dense throughput.
+                </figcaption>
+            </figure>
+            <p>
+                At matched throughput (&asymp;410 img/s), both multi-stage schedules beat 1-stage pruning in mIoU, but the 3-stage schedule beats pruning at every block on boundary IoU and centerline recall. The more aggressive per-block schedule may
+                remove ambiguous thin-vessel tokens, although the margins are small.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-sm results-table">
+                    <thead>
+                        <tr>
+                            <th>Schedule</th>
+                            <th>mIoU &uarr;</th>
+                            <th>cl-Dice &uarr;</th>
+                            <th>b-IoU &uarr;</th>
+                            <th>cl-Recall &uarr;</th>
+                            <th>GFLOPs &darr;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-stage (&rho; = 0.6)</td>
+                            <td>0.853 <span class="std">&plusmn;.001</span></td>
+                            <td>0.924 <span class="std">&plusmn;.001</span></td>
+                            <td>0.824 <span class="std">&plusmn;.001</span></td>
+                            <td>0.894 <span class="std">&plusmn;.001</span></td>
+                            <td>333</td>
+                        </tr>
+                        <tr>
+                            <td>3-stage (&rho; = 0.7)</td>
+                            <td>0.858 <span class="std">&plusmn;.001</span></td>
+                            <td><b>0.930</b> <span class="std">&plusmn;.000</span></td>
+                            <td><b>0.833</b> <span class="std">&plusmn;.001</span></td>
+                            <td><b>0.900</b> <span class="std">&plusmn;.000</span></td>
+                            <td>313</td>
+                        </tr>
+                        <tr>
+                            <td>Per-block (384)</td>
+                            <td><b>0.860</b> <span class="std">&plusmn;.001</span></td>
+                            <td>0.926 <span class="std">&plusmn;.001</span></td>
+                            <td>0.831 <span class="std">&plusmn;.001</span></td>
+                            <td>0.896 <span class="std">&plusmn;.001</span></td>
+                            <td><b>258</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note">
+                CROPR setup with only the schedule varied, mean &plusmn; std over three seeds. Each &rho; is chosen so that throughput is matched at &asymp;410 img/s.
+            </p>
+
+            <h3 style="margin-top: 10px;">Conclusion</h3>
+            <ul>
+                <li>Exposure to hard train-time pruning is a critical regulariser for dense prediction: CROPR matches the unpruned EoMT&rsquo;s mIoU (0.858) with 313 instead of 511 GFLOPs, while soft-masked DynamicViT drops to 0.617.</li>
+                <li>At matched throughput, pruning more often improves mIoU, while pruning at three selected blocks better preserves centerline and boundary metrics.</li>
+                <li>On the 12-block ViT-S, the overhead of per-block pruning limits throughput gains even as GFLOPs fall.</li>
+            </ul>
+
+            <h3 style="margin-top: 10px;">Code</h3>
+            <p>
+                The code, a Hydra config for every experiment and the result tables behind the paper&rsquo;s tables and figures are on <a href="https://github.com/Julian-Wyatt/TrainTimePruningDynamics">GitHub</a>. It builds on
+                <a href="https://github.com/tue-mps/eomt">EoMT</a>, with the token scorer ported from <a href="https://github.com/benbergner/cropr">CROPR</a> and the routing module from <a href="https://github.com/CompVis/tread">TREAD</a>.
+            </p>
+
+            <div class="abstract">
+                <h3>Citation</h3>
+                <!-- TODO: update month/pages (and add the DOI) once the MICCAI 2026 Workshops proceedings are published -->
+                <pre style="white-space: pre;">
+<code style="margin-left:20px">@InProceedings{WyaJul_How_MICCAISAT2026,
+	author    = {Wyatt, Julian AND Voiculescu, Irina},
+	title     = {{How Do Train-Time Pruning Dynamics and Pruning Schedules Affect Retinal Vessel Segmentation?}},
+	booktitle = {Medical Image Computing and Computer Assisted Intervention -- MICCAI 2026 Workshops and Challenges},
+	year      = {2026},
+	publisher = {Springer Nature Switzerland},
+	volume    = {LNCS 17265},
+	month     = {pending},
+	page      = {pending}
+}</code>
+				</pre>
+            </div>
+        </div>
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container" id="contact">
+            <h3>Julian Wyatt</h3>
+            <p>If you wish to contact me to ask any questions about any of my work or to view my work, please use the social links below.<br> I would love to hear from you!</p>
+            <p><strong>Email:</strong> julian_wyatt@hotmail.com</p>
+            <div class="social-links">
+                <a href="https://github.com/Julian-Wyatt" class="github"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/julian-wyatt-284468174/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+            <br> Favicon Rights are owned by: <a href="https://www.icons8.com">icons8.com</a>
+
+
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/mobileNav.js"></script>
+</body>
+
+</html>
