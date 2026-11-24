@@ -35,6 +35,17 @@
             height: auto;
         }
 
+        /* Side by side (lg+), shrink the interventions figure (image and caption together, so their edges line up)
+           to the token-norms figure's height and centre it in its column:
+           85.5% = (878 / 454) / (1038 / 459), the ratio of the two images' aspect ratios */
+        @media (min-width: 992px) {
+            .paper-figure.match-norms-height {
+                width: 85.5%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
         .paper-figure figcaption {
             margin-top: 8px;
             font-size: 15px;
@@ -246,7 +257,7 @@
                     </figure>
                 </div>
                 <div class="col-12 col-lg-6">
-                    <figure class="paper-figure">
+                    <figure class="paper-figure match-norms-height">
                         <img src="./assets/img/portfolio/mctp-interventions.jpg" alt="Token impact maps for DINOv3 with its prefix tokens removed, and for SigLIP 2 with five random tokens protected, at pruning depths 0, 3, 6 and 9">
                         <figcaption>
                             <b>Interventions.</b> Token impact maps for the ostrich image above at each pruning depth. Top: DINOv3 with its prefix tokens removed at the point of pruning. Bottom: SigLIP 2 with five <i>random</i> tokens (white &times;)
