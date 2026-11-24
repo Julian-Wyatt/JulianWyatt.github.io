@@ -102,15 +102,24 @@ h6 {
 # Fade in
 --------------------------------------------------------------*/
 
+/* A short fixed rise: a percentage moved tall blocks by half their height, leaving blank gaps while scrolling */
 [data-inviewport="fade-in"] {
-    transition: 0.75s;
-    transform: translateY(50%);
-    opacity: 0%;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(30px);
+    opacity: 0;
 }
 
 [data-inviewport="fade-in"].is-inViewport {
-    transform: translateY(0%);
-    opacity: 100%;
+    transform: none;
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-inviewport="fade-in"] {
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
 }
 
 

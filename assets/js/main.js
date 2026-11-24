@@ -1,15 +1,19 @@
 // https://stackoverflow.com/questions/27462306/css3-animate-elements-if-visible-in-viewport-page-scroll
 
+// Reveal each element once and keep it visible, so content no longer fades out and back in when scrolling up
 if (!!window.IntersectionObserver) {
     let observer = new IntersectionObserver(
         (entries, observer) => {
             entries.forEach(entry => {
-                /* Placeholder replacement */
-                entry.target.classList.toggle("is-inViewport", entry.isIntersecting);
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-inViewport");
+                    observer.unobserve(entry.target);
+                }
             });
         }, { rootMargin: "200px 0px -100px 0px" });
     document.querySelectorAll('[data-inviewport]').forEach(EL => { observer.observe(EL) })
-
+} else {
+    document.querySelectorAll('[data-inviewport]').forEach(EL => EL.classList.add("is-inViewport"));
 }
 
 
