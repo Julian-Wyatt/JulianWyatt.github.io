@@ -23,6 +23,11 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
+    <!-- KaTeX: renders the \( ... \) and \[ ... \] maths below -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
     <!-- Page-specific tweaks for the paper figures and results table -->
     <style>
         .paper-figure img {
@@ -40,6 +45,13 @@
             text-align: center;
             font-size: 18px;
             margin: 10px 0 20px;
+        }
+
+        /* Let a long display equation scroll on narrow screens instead of widening the page */
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 2px 0;
         }
 
         /* Undo the site-wide sudoku-grid table rules (style.css) for this table */
@@ -117,7 +129,7 @@
     <main id="main">
         <div class="container align-content-center smallMargin">
             <div class="paper-header">
-                <h2>Token Pruning Needs a Protected Sink Token: Coherent Spatial Aggregation in Vision Transformers</h2>
+                <h2>Token Pruning Needs a Protected Sink Token:<br>Coherent Spatial Aggregation in Vision Transformers</h2>
                 <div class="row" style="margin-top: 40px;">
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3">
                         <h3>Julian Wyatt</h3>
@@ -174,37 +186,37 @@
             </div>
 
             <figure class="paper-figure" style="margin-top: 30px;">
-                <img src="./assets/img/portfolio/mctp-teaser.jpg" alt="Token-impact maps at pruning depths 3, 6 and 9 for DINOv3, SigLIP 2, and SigLIP 2 with its five highest-norm tokens protected">
+                <img src="./assets/img/portfolio/mctp-teaser.jpg" alt="Token impact maps at pruning depths 3, 6 and 9 for DINOv3, SigLIP 2, and SigLIP 2 with its five highest-norm tokens protected">
                 <figcaption>
-                    <b>Coherent Aggregation.</b> Token-impact maps for linear-probed ViT-B/16s, pruning once at block 3, 6 or 9 (selected examples). DINOv3 places its impact on the object at every depth; SigLIP 2 does not, until its five highest-norm
-                    tokens (white &times;) are protected from pruning.
+                    <b>Coherent Aggregation.</b> Token impact maps for linear-probed ViT-B/16s, pruning once at block 3, 6 or 9 (selected examples). DINOv3 exhibits coherent token impact across pruning depths, while SigLIP 2 does not; protecting its
+                    five highest-norm tokens (white &times;) moves its impact onto the object.
                 </figcaption>
             </figure>
 
             <h2 style="margin-top: 30px;">Approach</h2>
             <p>
                 <b>M</b>onte <b>C</b>arlo <b>T</b>oken <b>P</b>runing (MCTP) measures how much each patch token of a pretrained Vision Transformer matters when tokens are removed inside the network. A linear-probed model is pruned once, at the input of
-                block <i>l</i>. Blocks 0 to <i>l</i>&minus;1 run once per image; then, in each of <i>M</i> = 1,000 draws, about 10% of the patch tokens, sampled as random square regions, continue through the remaining blocks together with the prefix
-                tokens ([CLS] and registers). For each token <i>i</i>, the probability of the unpruned top-1 class <i>&ycirc;</i> over the draws that keep it is compared with the draws that drop it:
+                block \(l\). Blocks \(0\) to \(l-1\) run once per image; then, in each of \(M = 1{,}000\) draws, about 10% of the patch tokens, sampled as random square regions, continue through the remaining blocks together with the prefix
+                tokens ([CLS] and registers). For each token \(i\), the probability of the unpruned top-1 class \(\hat{y}\) over the draws that keep it is compared with the draws that remove it:
             </p>
-            <p class="paper-equation">
-                &Delta;<sub><i>i</i></sub> = E[ <i>p</i><sub><i>&ycirc;</i></sub> | <i>i</i> kept ] &minus; E[ <i>p</i><sub><i>&ycirc;</i></sub> | <i>i</i> dropped ]
-            </p>
+            <div class="paper-equation">
+                \[ \Delta_i = \mathbb{E}\left[\, p_{\hat{y}} \mid i \text{ kept} \,\right] - \mathbb{E}\left[\, p_{\hat{y}} \mid i \text{ removed} \,\right] \]
+            </div>
             <p>
-                Because every draw reuses the cached blocks before <i>l</i>, a 1,000-draw run at <i>l</i> = 6 costs about as much as 47 full forward passes. Repeating this at several depths shows whether a model ranks its tokens the same way wherever it
+                Because every draw reuses the cached blocks before \(l\), a 1,000-draw run at \(l = 6\) costs about as much as 47 full forward passes. Repeating this at several depths shows whether a model ranks its tokens the same way wherever it
                 is pruned.
             </p>
             <figure class="paper-figure">
                 <img src="./assets/img/portfolio/mctp-method.png" alt="MCTP pipeline: blocks before l run once, M random token subsets run through the remaining blocks, and each token's draws are grouped into its impact">
                 <figcaption>
-                    <b>Monte Carlo Token Pruning.</b> In each of <i>M</i> draws, a subset &tau;<sub><i>t</i></sub> of the patch tokens runs through blocks <i>l</i> to <i>L</i>&minus;1. Grouping the draws by whether they keep token <i>i</i> gives
-                    its impact &Delta;<sub><i>i</i></sub>, and one map per pruning depth.
+                    <b>Monte Carlo Token Pruning.</b> In each of \(M\) draws, a subset \(\tau_t\) of the patch tokens runs through blocks \(l\) to \(L-1\). Grouping the draws by whether they keep token \(i\) gives
+                    its impact \(\Delta_i\), and one map per pruning depth.
                 </figcaption>
             </figure>
 
             <h3 style="margin-top: 30px;">Coherent Aggregation</h3>
             <p>
-                A model shows <b>Coherent Aggregation</b> when its token-impact maps rank tokens the same way at every pruning depth. Over the ImageNet-1k validation set, DINOv3&rsquo;s maps agree closely across depths (Spearman correlation 0.84&ndash;0.95),
+                A model shows <b>Coherent Aggregation</b> when its token impact maps rank tokens the same way at every pruning depth. Over the ImageNet-1k validation set, DINOv3&rsquo;s maps agree closely across depths (Spearman correlation 0.84&ndash;0.95),
                 while SigLIP 2&rsquo;s do not (0.15&ndash;0.58).
             </p>
             <div class="row justify-content-center">
@@ -212,7 +224,7 @@
                     <figure class="paper-figure">
                         <img src="./assets/img/portfolio/mctp-cross-depth.png" alt="Spearman correlation and top-10% overlap of token impacts between pruning depths 0, 3, 6 and 9, DINOv3 below the diagonal and SigLIP 2 above">
                         <figcaption>
-                            <b>Cross-depth consistency.</b> Spearman correlation (left) and top-10% overlap (right) between token-impact maps at different pruning depths, averaged over the ImageNet-1k validation set. DINOv3 is below the diagonal and
+                            <b>Cross-depth consistency.</b> Spearman correlation (left) and top-10% overlap (right) between token impact maps at different pruning depths, averaged over the ImageNet-1k validation set. DINOv3 is below the diagonal and
                             SigLIP 2 above it.
                         </figcaption>
                     </figure>
@@ -223,23 +235,23 @@
             <p>
                 Coherence needs predictions that survive pruning, and that depends on keeping the high-norm &ldquo;sink&rdquo; tokens that hold global context. DINOv3&rsquo;s sinks are mainly its registers, which are prefix tokens and so are never pruned.
                 SigLIP 2 has no prefix tokens: from around block 6 its sinks form on a few patch tokens, which pruning can remove. Removing DINOv3&rsquo;s prefix tokens at the point of pruning breaks its coherence, while protecting SigLIP 2&rsquo;s
-                five highest-norm tokens moves its impact back onto the object; five random tokens do not.
+                five highest-norm tokens moves its impact onto the object; five random tokens do not.
             </p>
             <div class="row">
                 <div class="col-12 col-lg-6">
                     <figure class="paper-figure">
                         <img src="./assets/img/portfolio/mctp-token-norms.jpg" alt="Patch-token norms for unpruned DINOv3 and SigLIP 2 at blocks 0, 3, 5, 6 and 9 on a shared log scale">
                         <figcaption>
-                            <b>Token norms.</b> Patch-token &ell;<sub>2</sub> norms for unpruned DINOv3 and SigLIP 2 at blocks 0, 3, 5, 6 and 9, relative to the median patch-token norm, on a shared log scale. The strip above DINOv3 shows its prefix
+                            <b>Token norms.</b> Patch-token \(\ell_2\) norms for unpruned DINOv3 and SigLIP 2 at blocks 0, 3, 5, 6 and 9, relative to the median patch-token norm, on a shared log scale. The strip above DINOv3 shows its prefix
                             tokens ([CLS] first, then the four registers).
                         </figcaption>
                     </figure>
                 </div>
                 <div class="col-12 col-lg-6">
                     <figure class="paper-figure">
-                        <img src="./assets/img/portfolio/mctp-interventions.jpg" alt="Token-impact maps for DINOv3 with its prefix tokens removed, and for SigLIP 2 with five random tokens protected, at pruning depths 0, 3, 6 and 9">
+                        <img src="./assets/img/portfolio/mctp-interventions.jpg" alt="Token impact maps for DINOv3 with its prefix tokens removed, and for SigLIP 2 with five random tokens protected, at pruning depths 0, 3, 6 and 9">
                         <figcaption>
-                            <b>Interventions.</b> Token-impact maps for the ostrich image above at each pruning depth. Top: DINOv3 with its prefix tokens removed at the point of pruning. Bottom: SigLIP 2 with five <i>random</i> tokens (white &times;)
+                            <b>Interventions.</b> Token impact maps for the ostrich image above at each pruning depth. Top: DINOv3 with its prefix tokens removed at the point of pruning. Bottom: SigLIP 2 with five <i>random</i> tokens (white &times;)
                             protected, a control for protecting its highest-norm tokens.
                         </figcaption>
                     </figure>
@@ -247,19 +259,19 @@
             </div>
 
             <p style="margin-top: 10px;">
-                <b>Off-box mass</b> <i>m</i> measures how much of a map&rsquo;s positive impact falls outside the object&rsquo;s bounding boxes, normalised so that a uniform map scores 1 (lower is better). <b>Stability</b> is the share of draws at
-                <i>l</i> = 6 whose top-1 prediction matches the unmodified model&rsquo;s unpruned prediction.
+                <b>Off-box mass</b> \(m\) measures how much of a map&rsquo;s positive impact falls outside the object&rsquo;s bounding boxes, normalised so that a uniform map scores 1 (lower is better). <b>Stability</b> is the share of draws at
+                \(l = 6\) whose top-1 prediction matches the unmodified model&rsquo;s unpruned prediction.
             </p>
             <div class="table-responsive">
                 <table class="table table-sm results-table">
                     <thead>
                         <tr>
                             <th>Intervention</th>
-                            <th><i>m</i>, <i>l</i>=0</th>
-                            <th><i>m</i>, <i>l</i>=3</th>
-                            <th><i>m</i>, <i>l</i>=6</th>
-                            <th><i>m</i>, <i>l</i>=9</th>
-                            <th>Stability, <i>l</i>=6</th>
+                            <th>\(m\), \(l=0\)</th>
+                            <th>\(m\), \(l=3\)</th>
+                            <th>\(m\), \(l=6\)</th>
+                            <th>\(m\), \(l=9\)</th>
+                            <th>Stability, \(l=6\)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -344,7 +356,7 @@
 
             <h3 style="margin-top: 10px;">Code</h3>
             <p>
-                The code, the DINOv3 and SigLIP 2 linear probes and a demo notebook are on <a href="https://github.com/Julian-Wyatt/MCTP">GitHub</a>. The notebook computes token-impact maps at depths 0, 3, 6 and 9 for DINOv3 and SigLIP 2 on any
+                The code, the DINOv3 and SigLIP 2 linear probes and a demo notebook are on <a href="https://github.com/Julian-Wyatt/MCTP">GitHub</a>. The notebook computes token impact maps at depths 0, 3, 6 and 9 for DINOv3 and SigLIP 2 on any
                 image, and runs on a laptop CPU in about 3 minutes.
             </p>
 
