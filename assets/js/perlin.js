@@ -320,7 +320,8 @@ class Simulation {
 
         if (this.renderer === undefined) {
 
-            this.height = window.innerHeight;
+            // 100px past the first screen, matching #hero's extra height, so its fade finishes below the fold
+            this.height = window.innerHeight + 100;
             this.width = document.body.scrollWidth;
 
         } else {
